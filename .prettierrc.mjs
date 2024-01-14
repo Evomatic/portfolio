@@ -9,6 +9,12 @@ export default {
   plugins: ["prettier-plugin-astro"],
   overrides: [
     {
+			files: ['.*', '*.json', '*.md', '*.yml'],
+			options: {
+				useTabs: false,
+			},
+		},
+    {
       files: "*.astro",
       options: {
         parser: "astro",
