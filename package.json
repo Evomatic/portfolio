@@ -1,5 +1,5 @@
 {
-  "name": "extraterrestrial-event",
+  "name": "portfolio",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -14,8 +14,13 @@
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.1.2",
     "astro-htmx": "^1.0.5",
+    "format:code": "prettier -w",
     "htmx.org": "^1.9.10",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.1",
+    "prettier-plugin-astro": "^0.12.3"
   }
 }
