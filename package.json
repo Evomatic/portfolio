@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "format:code": "prettier -w",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
@@ -14,7 +15,6 @@
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.1.2",
     "astro-htmx": "^1.0.5",
-    "format:code": "prettier -w",
     "htmx.org": "^1.9.10",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
