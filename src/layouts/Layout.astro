@@ -1,4 +1,5 @@
 ---
+import { AstroFont } from 'astro-font';
 interface Props {
 	title: string;
 }
@@ -15,40 +16,59 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<AstroFont
+			config={[
+				{
+					src: [],
+					name: 'Ibarra Real Nova',
+					googleFontsURL: 'https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:400,400i',
+					preload: true,
+					display: 'swap',
+					selector: 'body',
+					fallback: 'sans-serif',
+				},
+				{
+					src: [],
+					name: '',
+					googleFontsURL: '',
+					preload: true,
+					display: 'swap',
+					selector: 'body',
+					fallback: 'sans-serif',
+				},
+			]}
+		/>
 	</head>
+	>
 	<body>
 		<slot />
 	</body>
+	<style is:global>
+		:root {
+			/* primary colors */
+			--slightly-desaturated-cyan: hsl(167, 36%, 54%);
+			--dark-blue: hsl(205, 41%, 21%);
+			--grayish-dark-blue: hsl(245, 10%, 22%);
+
+			/* secondary colors */
+			--very-light-grey: hsl(0, 0%, 98%);
+			--light-grey-text-field: hsl(240, 2%, 92%);
+			--bright-red-errors: hsl(0, 90%, 57%);
+
+			/* action colors */
+			--primary-normal-color: var(--dark-blue);
+			--primary-hover-color: var(--slightly-desaturated-cyan);
+
+			--secondary-normal-color: var(hsl(0, 0%, 100%));
+			--secondary-hover-color: var(--grayish-dark-blue);
+
+			/* font */
+			--small-font: 0.938rem;
+			--medium-font: 1rem;
+		}
+		html {
+			background: #13151a;
+			background-size: 224px;
+		}
+	</style>
 </html>
-<style is:global>
-	:root {
-		/* primary colors */
-		--slightly-desaturated-cyan: hsl(167, 36%, 54%);
-		--dark-blue: hsl(205, 41%, 21%);
-		--grayish-dark-blue: hsl(245, 10%, 22%);
-
-		/* secondary colors */
-		--very-light-grey: hsl(0, 0%, 98%);
-		--light-grey-text-field: hsl(240, 2%, 92%);
-		--bright-red-errors: hsl(0, 90%, 57%);
-
-		/* headings */
-		--
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>
