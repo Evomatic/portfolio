@@ -29,8 +29,8 @@ const { title } = Astro.props;
 				},
 				{
 					src: [],
-					name: '',
-					googleFontsURL: '',
+					name: 'Public Sans',
+					googleFontsURL: 'https://fonts.googleapis.com/css2?family=Public+Sans:400,400i',
 					preload: true,
 					display: 'swap',
 					selector: 'body',
@@ -65,10 +65,12 @@ const { title } = Astro.props;
 			/* font */
 			--small-font: 0.938rem;
 			--medium-font: 1rem;
+
+
 		}
-		html {
-			background: #13151a;
-			background-size: 224px;
+		body {
+			font-family: "Public Sans", sans-serif;
+			font-size: var(--small-font);
 		}
 	</style>
 </html>
