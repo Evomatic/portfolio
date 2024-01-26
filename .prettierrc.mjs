@@ -6,7 +6,7 @@ export default {
   trailingComma: 'es5',
   useTabs: true,
   astroAllowShorthand: false,
-  plugins: ['prettier-plugin-astro'],
+  plugins: ['prettier-plugin-astro', 'prettier-plugin-css-order'],
   overrides: [
     {
       files: ['.*', '*.json', '*.md', '*.yml'],
