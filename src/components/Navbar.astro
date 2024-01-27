@@ -1,5 +1,39 @@
-<header class="nav-header">
-    <nav>
-        
+<!-- <nav>
+	<div class="nav-wrapper">
+        <a>Logo</a>
+        <ul>
+            <li><a>HOME</a></li>
+            <li><a>PORTFOLIO</a></li>
+            <li><a>CONTACT ME</a></li>
+        </ul>
+    </div>
+</nav> -->
+
+<button id="hamburger-menu">
+    <nav id="sidebar-menu">
+        <h3>Menu</h3>
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">PORTFOLIO</a></li>
+            <li><a href="#">CONTACT ME</a></li>
+          </ul>
     </nav>
-</header>
+</button>
+
+<div class="overlay"></div>
+
+<style define:vars="{{ formatIt }}">
+	/* .nav-wrapper {
+		margin-inline: auto;
+        height: 100px;
+		max-width: 320px;
+	} */
+    #hamburger-menu {
+    /* color: var(--grayish-dark-blue); */
+    width: 24px;
+    height: 13px;
+    display: block;
+    border: none;
+    background-image: url(/hamburger.svg);
+}
+</style>
