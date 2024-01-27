@@ -46,8 +46,8 @@ const { title } = Astro.props;
 	</head>
 	>
 	<body>
-		<main class="layout-wrap">
-			<div class="layout-content">
+		<main>
+			<div class="layout-container">
 				<slot />
 			</div>
 		</main>
@@ -92,6 +92,7 @@ const { title } = Astro.props;
 		}
 		body {
 			margin: 0;
+			background-color: var(--grayish-dark-blue);
 			padding: 0;
 			font-size: var(--small-font);
 			line-height: var(--body-line-height);
@@ -127,13 +128,10 @@ const { title } = Astro.props;
 			letter-spacing: var(--h3-letter-spacing);
 		}
 
-		.layout-wrap {
-			padding: 0 7.3%;
-		}
-
-		.layout-content {
+		.layout-container {
 			margin-inline: auto;
-			max-width: 1128px;
+			background-color: var(--very-light-grey);
+			max-width: 1111px;
 		}
 	</style>
 </html>
