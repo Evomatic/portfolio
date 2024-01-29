@@ -1,38 +1,82 @@
 ---
 import { Icon } from 'astro-icon/components';
 ---
-<nav>
-		<ul>
-			<li>
-				<a href="https://threkk.com">threkk.com</a>
-			</li>
-		</ul>
-		<!-- The hamburger menu -->
-		<label for='menu' tabindex="0">
-			<Icon name="hamburger"/>
-		</label>
-		<input id='menu' type='checkbox' />
-		<!-- The collapsable menu -->
-		<ul>
-			<li><a href='https://mastodon.social/@threkk'>HOME</a></li>
-			<li><a href='https://twitter.com/threkk'>PORTFOLIO</a></li>
-			<li><a href='https://github.com/threkk'>CONTACT ME</a></li>
-		</ul>
-    <!-- Always visible items in the nav bar -->
-</nav>
 
+<nav>
+	<ul class="logo-container">
+		<li>
+			<a href="https://threkk.com"><Icon name="logo"/></a>
+		</li>
+	</ul>
+	<!-- The hamburger menu -->
+	<label for="menu" tabindex="0">
+		<Icon name="hamburger" />
+	</label>
+	<input id="menu" type="checkbox" />
+	<!-- The collapsable menu -->
+	<ul>
+		<li><a href="https://mastodon.social/@threkk">HOME</a></li>
+		<li><a href="https://twitter.com/threkk">PORTFOLIO</a></li>
+		<li><a href="https://github.com/threkk">CONTACT ME</a></li>
+	</ul>
+	<!-- Always visible items in the nav bar -->
+</nav>
 
 <style>
 
-nav {
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        min-height: 100px;
+        min-width: 320px;
+        justify-content: space-between;
+        padding: 0 0 0 0;
+    }
+    /* Because we are in mobile mode, we want to display it as a
+   vertical list */
+    nav ul {
+        list-style-type: none;
+    }
+    .logo-container {
+        display: flex;
+        padding-left: 0px;
+    }
+
+    input[type='checkbox']:not(:checked) + ul {
+        display: none;
+    }
+    nav input[type='checkbox'],
+    nav label {
+        display: none;
+    }
+
+    /* Stlying the menu icon, the checkbox stays hidden */
+    nav label {
+        display: block;
+        align-self: center;
+        padding: 0.5em;
+        line-height: 1.6em;
+        text-align: right;
+    }
+
+</style>
+
+
+<!-- nav {
     display: flex;
-	align-items: center;
-    justify-content: space-between;
-	min-height: 100px;
+    align-items: center;
+    width: 100%;
+    min-height: 100px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-right: 0;
+    margin-left: 0;
 }
 nav ul {
     /* Make the markers disappear */
-    list-style-type: none;
+    /* list-style-type: none; */
+    display: block;
 }
 nav ul li {
     /* Puts the elements in a single line */
@@ -40,46 +84,7 @@ nav ul li {
     margin: 0.3em 1em;
 }
 
-@media (max-width: 576px) {
-    nav {
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    /* Because we are in mobile mode, we want to display it as a
-       vertical list */
-    nav ul {
-        display: block;
-    }
-    /* We have two lists: the first one are the always visibile items
-       in the menu bar. The second one is the one that will be hidden */
-    nav ul:last-child {
-        width: 100%;
-        flex-basis: 100%;
-    }
-    nav ul li {
-        margin-bottom: 0;
-        width: 100%;
-        text-align: right;
-        padding: 0.5em;
-    }
-
-	input[type='checkbox']:not(:checked)+ul {
-    display: none;
-}
-nav input[type='checkbox'], nav label {
-    display: none;
-}
-
-/* Stlying the menu icon, the checkbox stays hidden */
-nav label {
-    text-align: right;
-    display: block;
-    padding: 0.5em;
-    line-height: 1.6em;
-    align-self: center;
-}
-}
-
-</style>
+nav ul:last-child {
+    flex-basis: 100%;
+    width: 100%;
+} -->
