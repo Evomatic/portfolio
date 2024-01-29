@@ -46,7 +46,7 @@ const { title } = Astro.props;
 		/>
 	</head>
 	<body>
-		<header class="nav-header">
+		<header>
 			<Navbar />
 		</header>
 		<main>
@@ -130,9 +130,12 @@ const { title } = Astro.props;
 				letter-spacing: var(--h3-letter-spacing);
 			}
 
-			.nav-header {
-				background-color: aliceblue;
+			header {
+				background-color: var(--very-light-grey);
 				max-width: 100%;
+				display: flex;
+				align-items: center;
+				flex-direction: column;
 			}
 
 			.layout-container {
