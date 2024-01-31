@@ -1,0 +1,31 @@
+---
+import { Icon } from 'astro-icon/components';
+import NavMenu from './NavMenu.astro';
+---
+
+<nav role="navigation">
+	<ul class="logo-container">
+		<li>
+			<a href="/"><Icon name="logo" /></a>
+		</li>
+	</ul>
+	<NavMenu />
+</nav>
+
+<style>
+	nav {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0;
+		min-width: 320px;
+		height: 100px;
+	}
+
+	.logo-container {
+		display: flex;
+		padding-left: 0px;
+		list-style-type: none;
+	}
+</style>
