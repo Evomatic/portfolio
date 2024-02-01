@@ -1,0 +1,107 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<footer>
+	<nav id="footer-container" aria-label="footer site map">
+		<ul class="site-map-container">
+			<li><a aria-label="link to top of page" href="/"><Icon name="logo-light" /></a></li>
+			<li><a aria-label="link to top of page" href="/">HOME</a></li>
+			<li><a aria-label="link to portfolio page" href="/portfolio">PORTFOLIO</a></li>
+			<li><a aria-label="link to contact page" href="/contact">CONTACT ME</a></li>
+			<li>
+				<ul class="social-media">
+					<li>
+						<a
+							href="https://github.com/evomatic"
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="link to github"><Icon name="github-light" /></a
+						><li>
+							<a href="#" aria-label="link to twitter" target="_blank" rel="noopener noreferrer"
+								><Icon name="twitter-light" /><li>
+									<a
+										href="https://www.linkedin.com/in/evantrujillo/"
+										aria-label="link to linkedin"
+										target="_blank"
+										rel="noopener noreferrer"><Icon name="linkedin-light" /></a
+									>
+								</li></a
+							>
+						</li>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</footer>
+<style>
+	footer {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#footer-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: calc(100% - 14%);
+		min-height: 354px;
+	}
+
+	#footer-container li {
+		list-style-type: none;
+	}
+
+	#footer-container ul {
+		padding-left: 0px;
+	}
+
+	.site-map-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		min-height: 242px;
+	}
+
+	.site-map-container li a {
+		color: var(--very-light-grey);
+		text-decoration: none;
+	}
+
+	.social-media {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+	}
+
+	@media (hover: hover) {
+		.site-map-container li a:hover {
+			transition: color 0.3s ease;
+			color: var(--slightly-desaturated-cyan);
+		}
+	}
+	@media (hover: none) {
+		.site-map-container li a:focus {
+			color: var(--slightly-desaturated-cyan);
+		}
+	}
+
+	@media (min-width: 768px) {
+		footer {
+			min-height: 80px;
+		}
+
+		#footer-container {
+			min-height: 80px;
+		}
+		.site-map-container {
+			flex-direction: row;
+			margin: 0px;
+			min-height: 80px;
+		}
+	}
+</style>
