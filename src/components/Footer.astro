@@ -5,10 +5,14 @@ import { Icon } from 'astro-icon/components';
 <footer>
 	<nav id="footer-container" aria-label="footer site map">
 		<ul class="site-map-container">
-			<li><a aria-label="link to top of page" href="/"><Icon name="logo-light" /></a></li>
-			<li><a aria-label="link to top of page" href="/">HOME</a></li>
-			<li><a aria-label="link to portfolio page" href="/portfolio">PORTFOLIO</a></li>
-			<li><a aria-label="link to contact page" href="/contact">CONTACT ME</a></li>
+			<li>
+				<ul class="nav-container">
+					<li><a aria-label="link to top of page" href="/"><Icon name="logo-light" /></a></li>
+					<li><a aria-label="link to top of page" href="/">HOME</a></li>
+					<li><a aria-label="link to portfolio page" href="/portfolio">PORTFOLIO</a></li>
+					<li><a aria-label="link to contact page" href="/contact">CONTACT ME</a></li>
+				</ul>
+			</li>
 			<li>
 				<ul class="social-media">
 					<li>
@@ -72,6 +76,14 @@ import { Icon } from 'astro-icon/components';
 		text-decoration: none;
 	}
 
+	.nav-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 16px;
+	}
+
 	.social-media {
 		display: flex;
 		align-items: center;
@@ -101,7 +113,23 @@ import { Icon } from 'astro-icon/components';
 		.site-map-container {
 			flex-direction: row;
 			margin: 0px;
+			width: calc(100% - 18%);
 			min-height: 80px;
+			min-width: 688px;
+		}
+
+		.nav-container {
+			flex-direction: row;
+			min-width: 481px;
+			justify-content: flex-start;
+			gap: 40px;
+			align-items:normal;
+		}
+	}
+		@media (min-width: 1024px) {
+			.site-map-container {
+				width: 1000px;
+			}
 		}
 	}
 </style>
