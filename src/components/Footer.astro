@@ -81,13 +81,25 @@ import { Icon } from 'astro-icon/components';
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		gap: 16px;
+		gap: 20px;
+	}
+
+	.nav-container li:nth-child(1) {
+		height: 32px;
 	}
 
 	.social-media {
 		display: flex;
 		align-items: center;
 		gap: 16px;
+	}
+
+	.social-media li:nth-child(odd) {
+		height: 24px;
+	}
+
+	.social-media li:nth-child(2) {
+		height: 19px;
 	}
 
 	@media (hover: hover) {
@@ -113,9 +125,8 @@ import { Icon } from 'astro-icon/components';
 		.site-map-container {
 			flex-direction: row;
 			margin: 0px;
-			width: calc(100% - 18%);
 			min-height: 80px;
-			min-width: 688px;
+			min-width: 689px;
 		}
 
 		.nav-container {
@@ -123,12 +134,15 @@ import { Icon } from 'astro-icon/components';
 			min-width: 481px;
 			justify-content: flex-start;
 			gap: 40px;
-			align-items:normal;
 		}
 	}
 		@media (min-width: 1024px) {
 			.site-map-container {
-				width: 1000px;
+				width: 1111px;
+			}
+
+			.nav-container {
+			gap: 60px;
 			}
 		}
 	}
