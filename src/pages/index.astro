@@ -1,12 +1,14 @@
 ---
 import ContactMeShared from '~/components/ContactMeShared.astro';
+import AboutMe from '~/components/Home/AboutMe.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Welcome to Evan Trujillo's portfolio.">
-	<div class="page-wrapper">
+	<section class="page-wrapper">
+		<AboutMe />
 		<ContactMeShared />
-	</div>
+	</section>
 </Layout>
 
 <style>
