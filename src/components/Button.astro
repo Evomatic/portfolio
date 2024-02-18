@@ -1,0 +1,36 @@
+---
+interface Props {
+	label: string;
+	href: string;
+	ariaLabel: string;
+}
+
+const { label, href, ariaLabel } = Astro.props;
+---
+
+<a class="button" aria-label={ariaLabel} href={href}>{label}</a>
+<style>
+	.button {
+		display: inline-block;
+		transition: all 0.5s ease;
+		border: solid var(--grayish-dark-blue) 1px;
+		padding: 8px 34px;
+		color: var(--grayish-dark-blue);
+		font-size: var(--xs-small-font);
+		letter-spacing: 0.1rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	.button:hover {
+		background-color: var(--grayish-dark-blue);
+		color: var(--very-light-grey);
+	}
+
+	@media (hover: none) {
+		.button:focus {
+			background-color: var(--grayish-dark-blue);
+			color: var(--very-light-grey);
+		}
+	}
+</style>
