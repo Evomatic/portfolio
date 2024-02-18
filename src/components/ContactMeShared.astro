@@ -1,7 +1,17 @@
-<div class="contact-me"></div>
-<style>
-	.contact-me {
-		border: solid red 2px;
-		min-height: 362px;
-	}
-</style>
+---
+import Button from './Button.astro';
+---
+
+<div class="contact-me">
+	<div class="header-container">
+		<h2>Interested in doing a project together?</h2>
+	</div>
+	<div class="btn-container">
+		<Button href="/contact-me" label="contact me" ariaLabel="Go to contact me page." />
+	</div>
+	<style>
+		.contact-me {
+			min-height: 312px;
+		}
+	</style>
+</div>
