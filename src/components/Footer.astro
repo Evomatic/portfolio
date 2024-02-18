@@ -8,9 +8,9 @@ import { Icon } from 'astro-icon/components';
 			<li>
 				<ul class="nav-container">
 					<li><a aria-label="link to top of page" href="#"><Icon name="logo-light" /></a></li>
-					<li><a aria-label="link to top of page" href="/">HOME</a></li>
-					<li><a aria-label="link to portfolio page" href="/portfolio">PORTFOLIO</a></li>
-					<li><a aria-label="link to contact page" href="/contact">CONTACT ME</a></li>
+					<li><a aria-label="link to top of page" href="/">home</a></li>
+					<li><a aria-label="link to portfolio page" href="/portfolio">portfolio</a></li>
+					<li><a aria-label="link to contact page" href="/contact">contact me</a></li>
 				</ul>
 			</li>
 			<li>
@@ -49,10 +49,13 @@ import { Icon } from 'astro-icon/components';
 
 	#footer-container {
 		display: flex;
+		font-size: var(--xs-small-font);
 		justify-content: center;
+		text-transform: uppercase;
 		align-items: center;
 		width: calc(100% - 14%);
 		min-height: 354px;
+		letter-spacing: 0.1rem;
 	}
 
 	#footer-container li {
