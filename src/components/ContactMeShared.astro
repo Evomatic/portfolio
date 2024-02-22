@@ -3,15 +3,63 @@ import Button from './Button.astro';
 ---
 
 <div class="contact-me">
-	<div class="header-container">
+	<span class="line-break"></span>
+	<div class="header">
 		<h2>Interested in doing a project together?</h2>
 	</div>
-	<div class="btn-container">
+	<div class="btn">
 		<Button href="/contact-me" label="contact me" ariaLabel="Go to contact me page." />
 	</div>
 	<style>
+		.line-break {
+			align-self: flex-start;
+			margin-bottom: 80px;
+			border: solid var(--light-grey-text-field) 1px;
+			width: 100%;
+		}
 		.contact-me {
-			min-height: 312px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 5px;
+			min-height: 420px;
+		}
+
+		.btn,
+		.header {
+			justify-self: center;
+		}
+
+		.header {
+			text-align: center;
+		}
+
+		@media (min-width: 768px) {
+			.line-break {
+				align-self: auto;
+				margin-bottom: 0px;
+				width: calc(100% - 602px);
+			}
+			.contact-me {
+				flex-direction: row;
+				justify-content: space-between;
+				gap: 0px;
+			}
+
+			.header {
+				max-width: 350px;
+				text-align: inherit;
+			}
+
+			.contact-me :nth-child(1) {
+				order: 2;
+			}
+			.contact-me :nth-child(2) {
+				order: 1;
+			}
+			.contact-me :nth-child(3) {
+				order: 3;
+			}
 		}
 	</style>
 </div>
