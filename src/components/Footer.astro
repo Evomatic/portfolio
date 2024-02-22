@@ -124,12 +124,13 @@ import { Icon } from 'astro-icon/components';
 
 		#footer-container {
 			min-height: 80px;
+			min-width: 713px;
 		}
 		.site-map-container {
 			flex-direction: row;
 			margin: 0px;
 			min-height: 80px;
-			min-width: 689px;
+			width: 100%;
 		}
 
 		.nav-container {
@@ -140,8 +141,8 @@ import { Icon } from 'astro-icon/components';
 		}
 	}
 		@media (min-width: 1024px) {
-			.site-map-container {
-				width: 1111px;
+			#footer-container {
+				max-width: 1056px;
 			}
 
 			.nav-container {
