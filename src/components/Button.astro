@@ -3,18 +3,22 @@ interface Props {
 	label: string;
 	href: string;
 	ariaLabel: string;
+	width: number;
+	height: number;
 }
 
-const { label, href, ariaLabel } = Astro.props;
+const { label, href, ariaLabel, width, height } = Astro.props;
 ---
 
-<a class="button" aria-label={ariaLabel} href={href}>{label}</a>
+<a class="button" style=`padding: ${height}px ${width}px;` aria-label={ariaLabel} href={href}
+	>{label}</a
+>
 <style>
 	.button {
 		display: inline-block;
 		transition: all 0.5s ease;
 		border: solid var(--grayish-dark-blue) 1px;
-		padding: 8px 34px;
+		/* padding: 8px 34px; */
 		color: var(--grayish-dark-blue);
 		font-size: var(--xs-small-font);
 		letter-spacing: 0.1rem;
