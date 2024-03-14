@@ -1,49 +1,100 @@
 ---
 import Button from '../Button.astro';
+import profilePicture from '../../images/homepage/desktop/image-homepage-profile.jpg';
+import profilePictureTablet from '../../images/homepage/tablet/image-homepage-profile.jpg';
+import profilePictureMobile from '../../images/homepage/mobile/image-homepage-profile.jpg';
+import ImageHome from './ImageHome.astro';
 ---
 
 <div class="about-me">
-	<div class="image"></div>
-	<h2>About Me</h2>
-	<p class="text">
-		I’m a junior front-end developer looking for a new role in an exciting company. I focus on
-		writing accessible HTML, using modern CSS practices and writing clean JavaScript. When writing
-		JavaScript code, I mostly use React, but I can adapt to whatever tools are required. I’m based
-		in London, UK, but I’m happy working remotely and have experience in remote teams. When I’m not
-		coding, you’ll find me outdoors. I love being out in nature whether that’s going for a walk, run
-		or cycling. I’d love you to check out my work.
-	</p>
-	<div class="button">
-		<Button
-			height={8}
-			width={10}
-			label="go to portfolio"
-			href="/portfolio"
-			ariaLabel="Go to portfolio page."
-		/>
+	<ImageHome
+		mobileImgUrl={profilePictureMobile}
+		tabletImgUrl={profilePictureTablet}
+		desktopImgUrl={profilePicture}
+		alt="Evan's profile picture."
+	/>
+	<div class="description">
+		<span class="line-break-top"></span>
+		<h2>About Me</h2>
+		<p class="text">
+			I’m a junior front-end developer looking for a new role in an exciting company. I focus on
+			writing accessible HTML, using modern CSS practices and writing clean JavaScript. When writing
+			JavaScript code, I mostly use React, but I can adapt to whatever tools are required. I’m based
+			in London, UK, but I’m happy working remotely and have experience in remote teams. When I’m
+			not coding, you’ll find me outdoors. I love being out in nature whether that’s going for a
+			walk, run or cycling. I’d love you to check out my work.
+		</p>
+		<div class="button-wrapper">
+			<Button
+				height={8}
+				width={34}
+				label="go to portfolio"
+				href="/portfolio"
+				ariaLabel="Go to portfolio page."
+			/>
+		</div>
+		<span class="line-break-bottom"></span>
 	</div>
+	<style>
+		.line-break-top,
+		.line-break-bottom {
+			border: solid var(--light-grey-text-field) 1px;
+			width: 100%;
+		}
+		.line-break-top {
+			display: inline-block;
+			margin-top: 30px;
+		}
+		h2 {
+			margin-bottom: 25px;
+		}
+		.about-me {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 50px;
+		}
+		.about-me p {
+			margin-top: 0px;
+			margin-bottom: 30px;
+			font-size: var(--medium-font);
+			text-align: start;
+		}
+
+		.description {
+			display: flex;
+			flex: 1;
+			flex-direction: column;
+		}
+
+		.button-wrapper {
+			max-width: 202px;
+		}
+
+		.line-break-bottom {
+			display: none;
+		}
+
+		@media (min-width: 768px) {
+			.line-break-top {
+				margin-top: 0;
+			}
+			.about-me {
+				flex-direction: row;
+			}
+
+			.description {
+				padding-left: 60px;
+			}
+
+			.line-break-top {
+				display: block;
+			}
+
+			.line-break-bottom {
+				display: block;
+				margin-top: auto;
+				margin-bottom: 10px;
+			}
+		}
+	</style>
 </div>
-<style>
-	h2 {
-		margin-bottom: 40px;
-	}
-	.about-me {
-		display: flex;
-		flex-direction: column;
-		border: solid red 1px;
-		min-height: 995px;
-	}
-	.about-me p {
-		margin-top: 0px;
-		margin-bottom: 29px;
-		inline-size: 298px;
-		font-size: var(--medium-font);
-		text-align: start;
-	}
-
-	.button {
-		max-width: 202px;
-	}
-</style>
-
-//TODO continue with about me section. Adjust button length
