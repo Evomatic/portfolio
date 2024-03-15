@@ -14,10 +14,13 @@ import AboutMeButton from './AboutMeButton.astro';
 		alt="Image from a project used as the Hero image."
 	/>
 
-	<dvi class="header-button"
-		><h2>Hey, I'm Evan Trujillo and I love building beautiful websites</h2><AboutMeButton class="about-me-button" /></dvi
-	>
+	<div class="header-and-button">
+		<h2>Hey, I'm Evan Trujillo and I love building beautiful websites</h2><AboutMeButton
+			class="about-me-button"
+		/>
+	</div>
 </div>
+
 <style>
 	.hero {
 		display: flex;
@@ -25,24 +28,30 @@ import AboutMeButton from './AboutMeButton.astro';
 		margin-bottom: 120px;
 	}
 	h2 {
-		max-width: 312px;
+		max-width: 400px;
 	}
 
 	.about-me-button {
-		display: none;
+		display: none !important;
 	}
 
 	@media (min-width: 768px) {
-		.header-button {
+		h2 {
+			padding-top: 20px;
+		}
+		.header-and-button {
+			display: flex;
 			position: absolute;
 			top: 444px;
+			flex-direction: column;
 			background-color: var(--very-light-grey);
 			width: 514px;
 			height: 278px;
 		}
 
 		.about-me-button {
-			display: inline-flex;
+			display: inline-flex !important;
+			margin-top: auto;
 		}
 	}
 

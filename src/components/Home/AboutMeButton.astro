@@ -4,24 +4,52 @@ import { Icon } from 'astro-icon/components';
 const { class: className, ...rest } = Astro.props;
 ---
 
-<a id='about-button' class={className} {...rest}><span><Icon name="down-arrows" /></span><span>About Me</span></a>
+<a id="about-button" class={className} {...rest}
+	><span><Icon name="down-arrows" /></span><span>About Me</span></a
+>
 
 <style>
 	#about-button {
-        display: inline-flex;
+		display: inline-flex;
 		align-items: center;
-		gap: 6px;
+		gap: 40px;
+		transition: background-color 0.5s ease;
+		cursor: pointer;
 		background: var(--dark-blue);
-		padding: 9px 57px;
+		width: 200px;
+		height: 48px;
 		color: var(--light-grey-text-field);
 	}
 
 	span:nth-child(1) {
-		background: var(--dark-blue);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition: background-color 0.5s ease;
+		background-color: #153243;
+		width: 48px;
+		height: 100%;
 	}
 
 	span:nth-child(2) {
 		font-size: var(--xs-small-font);
+		letter-spacing: 0.1rem;
 		text-transform: uppercase;
 	}
+
+	#about-button:hover {
+		background: var(--slightly-desaturated-cyan);
+		color: var(--very-light-grey);
+	}
+
+	span:nth-child(1):hover {
+		background-color: #52b69a;
+	}
+
+	/* @media (hover: none) {
+		#about-button:focus {
+			background-color: var(--grayish-dark-blue);
+			color: var(--very-light-grey);
+		}
+	} */
 </style>
