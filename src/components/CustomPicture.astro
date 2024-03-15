@@ -1,34 +1,33 @@
 ---
 import { getImage } from 'astro:assets';
 
+interface ImgSpecs {
+	src: string | ImageMetadata;
+	height?: number;
+	width?: number;
+}
 interface Props {
-	mobileImgUrl: string | ImageMetadata;
-	tabletImgUrl: string | ImageMetadata;
-	desktopImgUrl: string | ImageMetadata;
+	mobileImgSpecs: ImgSpecs;
+	tabletImgSpecs: ImgSpecs;
+	desktopImgSpecs: ImgSpecs;
 	alt: string;
 }
 
-const { mobileImgUrl, tabletImgUrl, desktopImgUrl, alt } = Astro.props;
+const { mobileImgSpecs, tabletImgSpecs, desktopImgSpecs, alt } = Astro.props;
 
 const mobileImg = await getImage({
-	src: mobileImgUrl,
+	...mobileImgSpecs,
 	format: 'webp',
-	height: 346,
-	width: 320,
 });
 
 const tabletImg = await getImage({
-	src: tabletImgUrl,
+	...tabletImgSpecs,
 	format: 'webp',
-	height: 600,
-	width: 281,
 });
 
 const desktopImg = await getImage({
-	src: desktopImgUrl,
+	...desktopImgSpecs,
 	format: 'webp',
-	height: 600,
-	width: 540,
 });
 ---
 
