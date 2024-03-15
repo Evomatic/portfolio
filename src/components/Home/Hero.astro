@@ -3,18 +3,19 @@ import mobileHeroImage from '../../images/homepage/mobile/image-homepage-hero.jp
 import tabletHeroImage from '../../images/homepage/tablet/image-homepage-hero.jpg';
 import desktopHeroImage from '../../images/homepage/desktop/image-homepage-hero.jpg';
 import CustomPicture from '../CustomPicture.astro';
+import AboutMeButton from './AboutMeButton.astro';
 ---
 
 <div class="hero">
 	<CustomPicture
 		mobileImgSpecs={{ src: mobileHeroImage }}
-		tabletImgSpecs={{ src: tabletHeroImage, height: 600, width: 713 }}
+		tabletImgSpecs={{ src: tabletHeroImage, width: 713 }}
 		desktopImgSpecs={{ src: desktopHeroImage, height: 603, width: 666 }}
 		alt="Image from a project used as the Hero image."
 	/>
 
 	<dvi class="header-button"
-		><h2>Hey, I'm Evan Trujillo and I love building beautiful websites</h2></dvi
+		><h2>Hey, I'm Evan Trujillo and I love building beautiful websites</h2><AboutMeButton class="about-me-button" /></dvi
 	>
 </div>
 <style>
@@ -26,4 +27,26 @@ import CustomPicture from '../CustomPicture.astro';
 	h2 {
 		max-width: 312px;
 	}
+
+	.about-me-button {
+		display: none;
+	}
+
+	@media (min-width: 768px) {
+		.header-button {
+			position: absolute;
+			top: 444px;
+			background-color: var(--very-light-grey);
+			width: 514px;
+			height: 278px;
+		}
+
+		.about-me-button {
+			display: inline-flex;
+		}
+	}
+
+	/* @media (min-width: 1024px) {
+
+	} */
 </style>
