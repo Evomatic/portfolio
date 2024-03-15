@@ -53,9 +53,10 @@ import ImageHome from './ImageHome.astro';
 			flex-direction: column;
 			margin-bottom: 50px;
 		}
-		.about-me p {
+		.text {
 			margin-top: 0px;
 			margin-bottom: 30px;
+			max-width: 360px;
 			font-size: var(--medium-font);
 			text-align: start;
 		}
@@ -83,7 +84,7 @@ import ImageHome from './ImageHome.astro';
 			}
 
 			.description {
-				padding-left: 60px;
+				padding-left: 70px;
 			}
 
 			.line-break-top {
@@ -94,6 +95,12 @@ import ImageHome from './ImageHome.astro';
 				display: block;
 				margin-top: auto;
 				margin-bottom: 10px;
+			}
+		}
+
+		@media (min-width: 1024px) {
+			.description {
+				padding-left: 120px;
 			}
 		}
 	</style>
