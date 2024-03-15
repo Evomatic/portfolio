@@ -1,0 +1,27 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<a id='about-button' class={className} {...rest}><span><Icon name="down-arrows" /></span><span>About Me</span></a>
+
+<style>
+	#about-button {
+        display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		background: var(--dark-blue);
+		padding: 9px 57px;
+		color: var(--light-grey-text-field);
+	}
+
+	span:nth-child(1) {
+		background: var(--dark-blue);
+	}
+
+	span:nth-child(2) {
+		font-size: var(--xs-small-font);
+		text-transform: uppercase;
+	}
+</style>
