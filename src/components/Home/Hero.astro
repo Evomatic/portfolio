@@ -1,0 +1,29 @@
+---
+import mobileHeroImage from '../../images/homepage/mobile/image-homepage-hero.jpg';
+import tabletHeroImage from '../../images/homepage/tablet/image-homepage-hero.jpg';
+import desktopHeroImage from '../../images/homepage/desktop/image-homepage-hero.jpg';
+import CustomPicture from '../CustomPicture.astro';
+---
+
+<div class="hero">
+	<CustomPicture
+		mobileImgSpecs={{ src: mobileHeroImage }}
+		tabletImgSpecs={{ src: tabletHeroImage, height: 600, width: 713 }}
+		desktopImgSpecs={{ src: desktopHeroImage, height: 603, width: 666 }}
+		alt="Image from a project used as the Hero image."
+	/>
+
+	<dvi class="header-button"
+		><h2>Hey, I'm Evan Trujillo and I love building beautiful websites</h2></dvi
+	>
+</div>
+<style>
+	.hero {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 120px;
+	}
+	h2 {
+		max-width: 312px;
+	}
+</style>
