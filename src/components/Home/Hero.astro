@@ -10,7 +10,7 @@ import AboutMeButton from './AboutMeButton.astro';
 	<CustomPicture
 		mobileImgSpecs={{ src: mobileHeroImage }}
 		tabletImgSpecs={{ src: tabletHeroImage, width: 713 }}
-		desktopImgSpecs={{ src: desktopHeroImage, height: 603, width: 666 }}
+		desktopImgSpecs={{ src: desktopHeroImage, width: 1056 }}
 		alt="Image from a project used as the Hero image."
 	/>
 
@@ -55,7 +55,21 @@ import AboutMeButton from './AboutMeButton.astro';
 		}
 	}
 
-	/* @media (min-width: 1024px) {
-
-	} */
+	@media (min-width: 1024px) {
+		.hero {
+			margin-bottom: 100px;
+		}
+		h2 {
+			margin-bottom: 0;
+			padding-top: 10px;
+			font-size: var(--h1-font);
+			line-height: var(--h1-line-height);
+			letter-spacing: var(--h1-letter-spacing);
+		}
+		.header-and-button {
+			top: 331px;
+			width: 420px;
+			height: 340px;
+		}
+	}
 </style>
