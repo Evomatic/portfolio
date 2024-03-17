@@ -4,7 +4,7 @@ import { Icon } from 'astro-icon/components';
 const { class: className, ...rest } = Astro.props;
 ---
 
-<a id="about-button" class={className} {...rest}
+<a id="about-button" class={className} {...rest} aria-label="About me button" href="#about-me"
 	><span><Icon name="down-arrows" /></span><span>About Me</span></a
 >
 
@@ -15,10 +15,11 @@ const { class: className, ...rest } = Astro.props;
 		gap: 40px;
 		transition: background-color 0.5s ease;
 		cursor: pointer;
-		background: var(--dark-blue);
+		background-color: var(--dark-blue);
 		width: 200px;
 		height: 48px;
 		color: var(--light-grey-text-field);
+		text-decoration: none;
 	}
 
 	span:nth-child(1) {
@@ -37,19 +38,21 @@ const { class: className, ...rest } = Astro.props;
 		text-transform: uppercase;
 	}
 
+	[data-icon='down-arrows'] {
+		stroke: var(--slightly-desaturated-cyan);
+		transition: stroke 0.5s ease;
+	}
+
 	#about-button:hover {
-		background: var(--slightly-desaturated-cyan);
+		background-color: var(--slightly-desaturated-cyan);
 		color: var(--very-light-grey);
 	}
 
-	span:nth-child(1):hover {
-		background-color: #52b69a;
+	#about-button:hover [data-icon='down-arrows'] {
+		stroke: var(--very-light-grey);
 	}
 
-	/* @media (hover: none) {
-		#about-button:focus {
-			background-color: var(--grayish-dark-blue);
-			color: var(--very-light-grey);
-		}
-	} */
+	#about-button:hover span:nth-child(1) {
+		background-color: #56ab91;
+	}
 </style>

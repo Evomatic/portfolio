@@ -6,7 +6,7 @@ import profilePictureMobile from '../../images/homepage/mobile/image-homepage-pr
 import CustomPicture from '../CustomPicture.astro';
 ---
 
-<div class="about-me">
+<div id="about-me">
 	<CustomPicture
 		mobileImgSpecs={{ src: profilePictureMobile, height: 346, width: 320 }}
 		tabletImgSpecs={{ src: profilePictureTablet, height: 600, width: 281 }}
@@ -48,7 +48,7 @@ import CustomPicture from '../CustomPicture.astro';
 		h2 {
 			margin-bottom: 25px;
 		}
-		.about-me {
+		#about-me {
 			display: flex;
 			flex-direction: column;
 			margin-bottom: 50px;
@@ -79,7 +79,7 @@ import CustomPicture from '../CustomPicture.astro';
 			.line-break-top {
 				margin-top: 0;
 			}
-			.about-me {
+			#about-me {
 				flex-direction: row;
 			}
 
