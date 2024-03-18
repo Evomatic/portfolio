@@ -1,0 +1,109 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div id="get-in-touch">
+	<span class="line-break-top"></span>
+	<div class="header-text-icons">
+		<h2>Get in Touch</h2>
+		<p>
+			I’d love to hear about what you’re working on and how I could help. I’m currently looking for
+			a new role and am open to a wide range of opportunities. My preference would be to find a
+			position in a company in London. But I’m also happy to hear about opportunites that don’t fit
+			that description. I’m a hard-working and positive person who will always approach each task
+			with a sense of purpose and attention to detail. Please do feel free to check out my online
+			profiles below and get in touch using the form.
+		</p>
+		<ul class="social-media">
+			<li>
+				<a
+					href="https://github.com/evomatic"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="link to github"><Icon name="github" /></a
+				><li>
+					<a href="#" aria-label="link to twitter" target="_blank" rel="noopener noreferrer"
+						><Icon name="twitter" /><li>
+							<a
+								href="https://www.linkedin.com/in/evantrujillo/"
+								aria-label="link to linkedin"
+								target="_blank"
+								rel="noopener noreferrer"><Icon name="linkedin" /></a
+							>
+						</li></a
+					>
+				</li>
+			</li>
+		</ul>
+	</div>
+</div>
+<style>
+	#get-in-touch {
+		display: flex;
+		flex-direction: column;
+		padding-top: 10px;
+	}
+
+	p {
+		margin-top: 0px;
+		margin-bottom: 25px;
+		max-width: 100%;
+	}
+
+	.social-media {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		margin-top: 15px;
+		padding-left: 0px;
+	}
+
+	.social-media li:nth-child(odd) {
+		height: 24px;
+	}
+
+	.social-media li:nth-child(2) {
+		height: 19px;
+	}
+
+	ul li {
+		list-style-type: none;
+	}
+
+	.line-break-top {
+		display: inline-block;
+		border: solid var(--light-grey-text-field) 1px;
+		width: 100%;
+	}
+
+	@media (min-width: 768px) {
+		#get-in-touch {
+			padding-top: 40px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.header-text-icons {
+			display: grid;
+			grid-template-areas:
+				'h2 . text'
+				'. . icons';
+			gap: 0px 120px;
+			margin-top: 40px;
+		}
+
+		h2 {
+			grid-area: h2;
+			margin-top: 0px;
+		}
+
+		p {
+			grid-area: text;
+		}
+
+		.social-media {
+			grid-area: icons;
+			margin-top: 0px;
+		}
+	}
+</style>

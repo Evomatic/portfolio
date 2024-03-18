@@ -1,10 +1,18 @@
 ---
-import ContactMeShared from "~/components/ContactMeShared.astro";
-import Layout from "~/layouts/Layout.astro";
+import GetInTouch from '~/components/ContactMe/GetInTouch.astro';
+import Layout from '~/layouts/Layout.astro';
 ---
 
 <Layout title="Welcome to Evan Trujillo's portfolio.">
 	<div class="page-wrapper">
-        <ContactMeShared />
+		<GetInTouch />
 	</div>
 </Layout>
+<style>
+	.page-wrapper {
+		margin-inline: auto;
+		padding-right: 1.7rem;
+		padding-left: 1.7rem;
+		height: 531px;
+	}
+</style>
