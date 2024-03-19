@@ -1,18 +1,25 @@
-<div id="contact-me">
+<div>
 	<h2>Contact Me</h2>
-	<form>
+	<form id="contact-me">
 		<label
 			>Name
-			<input type="text" name="name" required />
+			<input type="text" name="name" required autocomplete="text" placeholder="Evan Trujillo" />
 		</label>
 		<label
 			>Email Address
-			<input type="email" name="email" required />
+			<input
+				type="email"
+				name="email"
+				required
+				autocomplete="email"
+				placeholder="evantrujillo30@gmail.com"
+			/>
 		</label>
 		<label
 			>Message
-			<input type="text" name="name" required />
+			<textarea name="message" required></textarea>
 		</label>
+		<button>Send Message</button>
 	</form>
 </div>
 
@@ -24,5 +31,20 @@
 	form {
 		display: flex;
 		flex-direction: column;
+	}
+
+	label {
+		display: flex;
+		flex-direction: column;
+	}
+
+	input {
+		max-width: 100%;
+		height: 48px;
+	}
+
+	textarea {
+		max-width: 100%;
+		height: 96px;
 	}
 </style>
