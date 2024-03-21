@@ -34,15 +34,18 @@ const { title } = Astro.props;
 					display: 'swap',
 					selector: 'body',
 					fallback: 'sans-serif',
+					cssVariable: 'ibarra-real-nova',
 				},
 				{
 					src: [],
 					name: 'Public Sans',
-					googleFontsURL: 'https://fonts.googleapis.com/css2?family=Public+Sans:400,400i',
+					googleFontsURL:
+						'https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap',
 					preload: true,
 					display: 'swap',
 					selector: 'body',
 					fallback: 'sans-serif',
+					cssVariable: 'public-sans',
 				},
 			]}
 		/>
@@ -106,13 +109,13 @@ const { title } = Astro.props;
 				padding: 0;
 				font-size: var(--small-font);
 				line-height: var(--body-line-height);
-				font-family: 'Public Sans', sans-serif;
+				font-family: var(--public-sans);
 			}
 			h1,
 			h2,
 			h3 {
 				color: var(--grayish-dark-blue);
-				font-family: 'Ibarra Real Nova', sans-serif;
+				font-family: var(--ibarra-real-nova);
 			}
 
 			h1,
