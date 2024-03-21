@@ -5,6 +5,7 @@
 		<label
 			>Name
 			<input type="text" name="name" required autocomplete="text" placeholder="Evan Trujillo" />
+			<span class="error-message">This field is required</span>
 		</label>
 		<label
 			>Email Address
@@ -15,10 +16,12 @@
 				autocomplete="email"
 				placeholder="evantrujillo30@gmail.com"
 			/>
+			<span class="error-message">This field is required</span>
 		</label>
 		<label
 			>Message
 			<textarea name="message" required placeholder="How can I help?"></textarea>
+			<span class="error-message">This field is required</span>
 		</label>
 		<button>Send Message</button>
 	</form>
@@ -26,14 +29,11 @@
 
 <style>
 	.contact-me-wrapper {
-		display: grid;
-		grid-template-areas:
-			'h2 . .'
-			'form form form';
+		padding-bottom: 30px;
 	}
 
 	.line-break-top {
-		display: inline-block;
+		display: none;
 		grid-area: line;
 		border: solid var(--light-grey-text-field) 1px;
 	}
@@ -46,16 +46,22 @@
 		display: flex;
 		grid-area: form;
 		flex-direction: column;
-		gap: 20px;
+		gap: 5px;
 		margin-bottom: 50px;
 	}
 
 	label {
 		display: flex;
 		flex-direction: column;
-		opacity: 70%;
 		color: var(--grayish-dark-blue);
 		font-weight: bold;
+	}
+
+	.error-message {
+		visibility: hidden;
+		color: var(--bright-red-errors);
+		font-style: italic;
+		font-size: 0.625rem;
 	}
 
 	input,
@@ -83,10 +89,13 @@
 	textarea {
 		padding-top: 15px;
 		height: 80px;
+		resize: none;
 	}
 
 	button {
+		transition: all 0.5s ease;
 		cursor: pointer;
+		margin-top: 0px;
 		background-color: var(--dark-blue);
 		padding: 17px 0px;
 		max-width: 200px;
@@ -102,8 +111,30 @@
 		outline: 2px solid var(--primary-hover-color);
 	}
 
+	input:focus:invalid,
+	textarea:focus:invalid {
+		outline: 2px solid var(--bright-red-errors);
+	}
+
+	input:focus:invalid + .error-message,
+	textarea:focus:invalid + .error-message {
+		visibility: visible;
+	}
+
+	button:hover,
+	button:focus {
+		background-color: var(--primary-hover-color);
+	}
+
+	@media (min-width: 768px) {
+		.line-break-top {
+			display: block;
+			margin: 20px 0px;
+		}
+	}
 	@media (min-width: 1024px) {
 		.contact-me-wrapper {
+			display: grid;
 			grid-template-areas:
 				'line line line'
 				'h2 form form';
