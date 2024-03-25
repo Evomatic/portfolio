@@ -12,7 +12,7 @@ export default defineConfig({
 			iconDir: 'src/images/icons',
 		}),
 	],
-	output: 'static',
+	output: 'hybrid',
 	adapter: node({
 		mode: 'standalone',
 	}),
