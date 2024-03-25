@@ -4,6 +4,8 @@ import { Resend } from 'resend';
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
 export const GET: APIRoute = async ({ params, request }) => {
+	console.log(params);
+	console.log(request);
 	const send = await resend.emails.send({
 		from: 'evantrujillo30@gmail.com',
 		to: 'evantrujillo30@gmail.com',
