@@ -3,26 +3,22 @@ import { Resend } from 'resend';
 
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
-export const GET: APIRoute = async ({ params, request }) => {
-	console.log(params);
-	console.log(request);
+export const POST: APIRoute = async ({ params, request }) => {
+	const formData = await request.formData();
+	const name = formData.get('name');
+	const email = formData.get('email');
+	const message = formData.get('message');
+
 	const send = await resend.emails.send({
-		from: 'evantrujillo30@gmail.com',
+		from: 'Portfolio site <no-reply@evantrujillo.com>',
 		to: 'evantrujillo30@gmail.com',
-		subject: 'test subject',
-		html: '<p>Sample email sent</p>',
-		text: 'Hi there',
+		subject: `New message from: ${name} (${email})`,
+		html: `<p>${message}</p>`,
 	});
 
-	// try {
-	// 	return new Response(JSON.stringify({ message: send.data }));
-	// } catch (error) {
-	// 	return new Response(JSON.stringify({ message: send.error }));
-	// }
-
-	if (send.data) {
+	try {
 		return new Response(JSON.stringify({ message: send.data }), { status: 200, statusText: 'OK' });
-	} else {
+	} catch (error) {
 		return new Response(JSON.stringify({ message: send.error }), {
 			status: 500,
 			statusText: 'Internal Server Error',

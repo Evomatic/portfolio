@@ -1,7 +1,7 @@
 <div class="contact-me-wrapper">
 	<span class="line-break-top"></span>
 	<h2>Contact Me</h2>
-	<form id="contact-me">
+	<form hx-post="/api/email.json" id="contact-me">
 		<label
 			>Name
 			<input type="text" name="name" required autocomplete="text" placeholder="Evan Trujillo" />
@@ -23,7 +23,7 @@
 			<textarea name="message" required placeholder="How can I help?"></textarea>
 			<span class="error-message">This field is required</span>
 		</label>
-		<button>Send Message</button>
+		<input class="button" value="Send Message" type="submit"/>
 	</form>
 </div>
 
@@ -66,7 +66,7 @@
 
 	input,
 	textarea,
-	button {
+	.button {
 		margin-top: 10px;
 		outline-style: none;
 		border-style: none;
@@ -92,7 +92,7 @@
 		resize: none;
 	}
 
-	button {
+	.button {
 		transition: all 0.5s ease;
 		cursor: pointer;
 		margin-top: 0px;
@@ -121,8 +121,8 @@
 		visibility: visible;
 	}
 
-	button:hover,
-	button:focus {
+	.button:hover,
+	.button:focus {
 		background-color: var(--primary-hover-color);
 	}
 
