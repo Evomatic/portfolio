@@ -3,7 +3,7 @@ import { Resend } from 'resend';
 
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
-export const POST: APIRoute = async ({ params, request }) => {
+export const POST: APIRoute = async ({ request }) => {
 	const formData = await request.formData();
 	const name = formData.get('name');
 	const email = formData.get('email');
@@ -16,12 +16,17 @@ export const POST: APIRoute = async ({ params, request }) => {
 		html: `<p>${message}</p>`,
 	});
 
-	try {
-		return new Response(JSON.stringify({ message: send.data }), { status: 200, statusText: 'OK' });
-	} catch (error) {
-		return new Response(JSON.stringify({ message: send.error }), {
-			status: 500,
-			statusText: 'Internal Server Error',
-		});
+	if (send.data) {
+		return new Response(`<span>Thank you very much!</span>`);
+	} else {
+		return new Response(
+			JSON.stringify({
+				message: send.error,
+			}),
+			{
+				status: 500,
+				statusText: 'Internal Server Error',
+			}
+		);
 	}
 };
