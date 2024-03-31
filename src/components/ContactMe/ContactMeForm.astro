@@ -1,7 +1,11 @@
 <div class="contact-me-wrapper">
 	<span class="line-break-top"></span>
 	<h2>Contact Me</h2>
-	<form hx-post="/api/email.json" id="contact-me">
+	<form
+		hx-swap="none"
+		hx-post="/api/email.json"
+		hx-on::after-request="if(event.detail.successful) this.reset()"
+	>
 		<label
 			>Name
 			<input type="text" name="name" required autocomplete="text" placeholder="Evan Trujillo" />
@@ -23,7 +27,7 @@
 			<textarea name="message" required placeholder="How can I help?"></textarea>
 			<span class="error-message">This field is required</span>
 		</label>
-		<input class="button" value="Send Message" type="submit"/>
+		<input class="button" value="Send Message" type="submit" />
 	</form>
 </div>
 

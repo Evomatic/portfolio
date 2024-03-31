@@ -3,8 +3,6 @@ import { Resend } from 'resend';
 
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
-const success = `<div id="contact-me" class="thank"><span>Thank you very much!</span></div>`;
-
 export const POST: APIRoute = async ({ request }) => {
 	const formData = await request.formData();
 	const name = formData.get('name');
@@ -12,14 +10,22 @@ export const POST: APIRoute = async ({ request }) => {
 	const message = formData.get('message');
 
 	const send = await resend.emails.send({
-		from: 'Portfolio site <onboarding@resend.dev>',
-		to: 'delivered@resend.dev',
+		from: "Evan's Portfolio <no-reply@evantrujillo.com>",
+		to: 'evantrujillo30@gmail.com',
 		subject: `New message from: ${name} (${email})`,
 		html: `<p>${message}</p>`,
 	});
 
 	if (send.data) {
-		return new Response(success);
+		return new Response(
+			JSON.stringify({
+				message: send.data,
+			}),
+			{
+				status: 200,
+				statusText: 'Email successfully sent!',
+			}
+		);
 	} else {
 		return new Response(
 			JSON.stringify({
