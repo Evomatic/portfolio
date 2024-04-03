@@ -1,13 +1,26 @@
 ---
-import manage from '../../images/portfolio/desktop/image-portfolio-manage.jpg';
-import bookmark from '../../images/portfolio/desktop/image-portfolio-bookmark.jpg';
-import insure from '../../images/portfolio/desktop/image-portfolio-insure.jpg';
-import fylo from '../../images/portfolio/desktop/image-portfolio-fylo.jpg';
-import { Image } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
+import manageDesktop from '../../images/portfolio/desktop/image-portfolio-manage@2x.jpg';
+import manageMobile from '../../images/portfolio/mobile/image-portfolio-manage@2x.jpg';
+import manageTablet from '../../images/portfolio/tablet/image-portfolio-manage@2x.jpg';
+import bookmarkTablet from '../../images/portfolio/tablet/image-portfolio-bookmark@2x.jpg';
+import bookmarkMobile from '../../images/portfolio/mobile/image-portfolio-bookmark@2x.jpg';
+import bookmarkDesktop from '../../images/portfolio/desktop/image-portfolio-bookmark@2x.jpg';
+import insureTablet from '../../images/portfolio/tablet/image-portfolio-insure@2x.jpg';
+import insureMobile from '../../images/portfolio/mobile/image-portfolio-insure@2x.jpg';
+import insureDesktop from '../../images/portfolio/desktop/image-portfolio-insure@2x.jpg';
+import fyloMobile from '../../images/portfolio/mobile/image-portfolio-fylo@2x.jpg';
+import fyloTablet from '../../images/portfolio/tablet/image-portfolio-fylo@2x.jpg';
+import fyloDesktop from '../../images/portfolio/desktop/image-portfolio-fylo@2x.jpg';
+import CustomPicture from '../CustomPicture.astro';
+import type { ImgSpecs } from '../CustomPicture.astro';
 import Button from '../Button.astro';
 
-type Image = { src: ImageMetadata; alt: string };
+type Image = {
+	mobileImgSpecs: ImgSpecs;
+	tabletImgSpecs: ImgSpecs;
+	desktopImgSpecs: ImgSpecs;
+	alt: string;
+};
 
 interface Project {
 	image: Image;
@@ -18,28 +31,48 @@ interface Project {
 
 const projects: Project[] = [
 	{
-		image: { src: manage, alt: 'The landing page of the manage project.' },
+		image: {
+			mobileImgSpecs: { src: manageMobile },
+			tabletImgSpecs: { src: manageTablet },
+			desktopImgSpecs: { src: manageDesktop },
+			alt: 'The landing page of the manage project.',
+		},
 		title: 'Manage',
 		description:
 			'This project required me to build a fully responsive landing page to the designs provided. I used HTML5, along with CSS Grid and JavaScript for the areas that required interactivity, such as the testimonial slider.',
 		href: '',
 	},
 	{
-		image: { src: bookmark, alt: 'The landing page of the bookmark project.' },
+		image: {
+			mobileImgSpecs: { src: bookmarkMobile },
+			tabletImgSpecs: { src: bookmarkTablet },
+			desktopImgSpecs: { src: bookmarkDesktop },
+			alt: 'The landing page of the bookmark project.',
+		},
 		title: 'Bookmark',
 		description:
 			'This project required me to build a fully responsive landing page to the designs provided. I used HTML5, along with CSS Grid and JavaScript for the areas that required interactivity, such as the features section.',
 		href: '',
 	},
 	{
-		image: { src: insure, alt: 'The landing page of the insure project.' },
+		image: {
+			mobileImgSpecs: { src: insureMobile },
+			tabletImgSpecs: { src: insureTablet },
+			desktopImgSpecs: { src: insureDesktop },
+			alt: 'The landing page of the insure project.',
+		},
 		title: 'Insure',
 		description:
 			'This was a small project which mostly consisted of HTML and CSS. I built a fully-responsive landing page. The only JavaScript this project required was to enable the toggling of the mobile navigation.',
 		href: '',
 	},
 	{
-		image: { src: fylo, alt: 'The landing page of the fylo project.' },
+		image: {
+			mobileImgSpecs: { src: fyloMobile },
+			tabletImgSpecs: { src: fyloTablet },
+			desktopImgSpecs: { src: fyloDesktop },
+			alt: 'The landing page of the fylo project.',
+		},
 		title: 'Fylo',
 		description:
 			'This project was built in pure HTML and CSS. I had mobile and desktop designs to work to and built it so that it was fully-responsive. I took a mobile-first approach and used modern CSS like Flexbox and Grid for layout purposes.',
@@ -52,7 +85,14 @@ const projects: Project[] = [
 	{
 		projects.map((project) => (
 			<div id="project">
-				<Image src={project.image.src} alt={project.image.alt} />
+				<CustomPicture
+					class="custom-picture"
+					mobileImgSpecs={{ src: project.image.mobileImgSpecs.src, width: 320.6, height: 306.5 }}
+					tabletImgSpecs={{ src: project.image.tabletImgSpecs.src, width: 339, height: 314 }}
+					desktopImgSpecs={{ src: project.image.desktopImgSpecs.src, width: 540, height: 500 }}
+					alt="Evan's profile picture."
+				/>
+				<span class="line-break-top" />
 				<h2>{project.title}</h2>
 				<p>{project.description}</p>
 				<Button
@@ -62,19 +102,44 @@ const projects: Project[] = [
 					href={project.href}
 					ariaLabel="Go to project details page."
 				/>
+				<span class="line-break-bottom" />
 			</div>
 		))
 	}
 </ul>
 
 <style>
+	ul {
+		margin-top: 0;
+		padding-left: 0;
+	}
 	#project {
 		display: grid;
 		grid-template-areas:
 			'image'
+			'lineT'
 			'title'
 			'description'
-			'button';
+			'button'
+			'lineB';
+	}
+
+	.custom-picture {
+		grid-area: image;
+	}
+
+	.line-break-top,
+	.line-break-bottom {
+		border: solid var(--light-grey-text-field) 1px;
+		width: 100%;
+	}
+
+	.line-break-top {
+		grid-area: lineT;
+	}
+
+	.line-break-bottom {
+		grid-area: lineB;
 	}
 
 	img {
