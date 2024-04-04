@@ -83,8 +83,8 @@ const projects: Project[] = [
 
 <ul>
 	{
-		projects.map((project) => (
-			<div id="project">
+		projects.map((project, index) => (
+			<div id=`${index}` class="project">
 				<CustomPicture
 					class="custom-picture"
 					mobileImgSpecs={{ src: project.image.mobileImgSpecs.src, width: 320.6, height: 306.5 }}
@@ -96,8 +96,9 @@ const projects: Project[] = [
 				<h2>{project.title}</h2>
 				<p>{project.description}</p>
 				<Button
+					class="project-button"
 					height={8}
-					width={32}
+					width={35}
 					label="view project"
 					href={project.href}
 					ariaLabel="Go to project details page."
@@ -112,16 +113,19 @@ const projects: Project[] = [
 	ul {
 		margin-top: 0;
 		padding-left: 0;
+		margin-bottom: 0;
 	}
-	#project {
+	.project {
 		display: grid;
+		grid-template-columns: 1fr 1fr;
 		grid-template-areas:
-			'image'
-			'lineT'
-			'title'
-			'description'
-			'button'
-			'lineB';
+			'image image'
+			'lineT lineT'
+			'title title'
+			'description description'
+			'button button '
+			'lineB lineB';
+		gap: 32px 0px;
 	}
 
 	.custom-picture {
@@ -140,6 +144,7 @@ const projects: Project[] = [
 
 	.line-break-bottom {
 		grid-area: lineB;
+		margin-bottom: 72px;
 	}
 
 	img {
@@ -148,13 +153,20 @@ const projects: Project[] = [
 
 	h2 {
 		grid-area: title;
+		margin: 0px;
 	}
 
 	p {
 		grid-area: description;
+		margin: 0px;
 	}
 
-	a {
+	.project-button {
 		grid-area: button;
+		justify-self: start;
+	}
+
+	div[id=3] span:last-child {
+		display: none;
 	}
 </style>
