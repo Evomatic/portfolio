@@ -5,13 +5,18 @@ interface Props {
 	ariaLabel: string;
 	width: number;
 	height: number;
+	class?: string;
 }
 
-const { label, href, ariaLabel, width, height } = Astro.props;
+const { class: className, label, href, ariaLabel, width, height, ...rest } = Astro.props;
 ---
 
-<a class="button" style=`padding: ${height}px ${width}px;` aria-label={ariaLabel} href={href}
-	>{label}</a
+<a
+	class=`button ${className}`
+	{...rest}
+	style=`padding: ${height}px ${width}px;`
+	aria-label={ariaLabel}
+	href={href}>{label}</a
 >
 <style>
 	.button {
