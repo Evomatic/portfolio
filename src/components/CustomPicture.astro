@@ -1,39 +1,50 @@
 ---
 import { getImage } from 'astro:assets';
 
-interface ImgSpecs {
+export interface ImgSpecs {
 	src: string | ImageMetadata;
-	height?: number;
-	width?: number;
+	height?: number | string;
+	width?: number | string;
 }
 interface Props {
 	mobileImgSpecs: ImgSpecs;
 	tabletImgSpecs: ImgSpecs;
 	desktopImgSpecs: ImgSpecs;
 	alt: string;
+	class?: string;
 }
 
-const { mobileImgSpecs, tabletImgSpecs, desktopImgSpecs, alt } = Astro.props;
+const {
+	class: className,
+	mobileImgSpecs,
+	tabletImgSpecs,
+	desktopImgSpecs,
+	alt,
+	...rest
+} = Astro.props;
 
 const mobileImg = await getImage({
 	...mobileImgSpecs,
 	format: 'webp',
+	fallbackFormat: 'jpg',
 });
 
 const tabletImg = await getImage({
 	...tabletImgSpecs,
 	format: 'webp',
+	fallbackFormat: 'jpg',
 });
 
 const desktopImg = await getImage({
 	...desktopImgSpecs,
 	format: 'webp',
+	fallbackFormat: 'jpg',
 });
 ---
 
-<picture>
-	<source media="(max-width: 767px)" srcset={mobileImg.src} />
-	<source media="(max-width: 1023px)" srcset={tabletImg.src} />
-	<source media="(min-width: 1024px)" srcset={desktopImg.src} />
+<picture class={className} {...rest}>
+	<source media="(max-width: 767px)" srcset={mobileImg.src} type="image/jpg" />
+	<source media="(max-width: 1023px)" srcset={tabletImg.src} type="image/jpg" />
+	<source media="(min-width: 1024px)" srcset={desktopImg.src} type="image/jpg" />
 	<img src={mobileImg.src} alt={alt} />
 </picture>

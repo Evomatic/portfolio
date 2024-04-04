@@ -19,13 +19,13 @@ dependencies:
     version: 0.0.77
   astro-htmx:
     specifier: ^1.0.5
-    version: 1.0.5(astro@4.1.2)(htmx.org@1.9.10)
+    version: 1.0.5(astro@4.1.2)(htmx.org@1.9.11)
   astro-icon:
     specifier: ^1.0.3
     version: 1.0.3
   htmx.org:
-    specifier: ^1.9.10
-    version: 1.9.10
+    specifier: ^1.9.11
+    version: 1.9.11
   resend:
     specifier: ^3.2.0
     version: 3.2.0
@@ -1431,14 +1431,14 @@ packages:
     resolution: {integrity: sha512-dh5TX2uxwqdFq15DF9cbRZgEdE9o8q522MP6xZYs+rnd3dexfDsIJMeEIDNVO7rkRxwJ7sphhCqTmdWvUJaiDg==}
     dev: false
 
-  /astro-htmx@1.0.5(astro@4.1.2)(htmx.org@1.9.10):
+  /astro-htmx@1.0.5(astro@4.1.2)(htmx.org@1.9.11):
     resolution: {integrity: sha512-lTwGy5sMyvp6+O6UiSQEXrEWimRpPi16mMBbQTWUshWrGklCpYbtho6eaZVonFcB9ue7Y7FjTTPiYfp0hUUEuQ==}
     peerDependencies:
       astro: '>= 3.0.0'
       htmx.org: '>= 1.9.0'
     dependencies:
       astro: 4.1.2(typescript@5.3.3)
-      htmx.org: 1.9.10
+      htmx.org: 1.9.11
     dev: false
 
   /astro-icon@1.0.3:
@@ -2600,8 +2600,8 @@ packages:
       entities: 4.5.0
     dev: false
 
-  /htmx.org@1.9.10:
-    resolution: {integrity: sha512-UgchasltTCrTuU2DQLom3ohHrBvwr7OqpwyAVJ9VxtNBng4XKkVsqrv0Qr3srqvM9ZNI3f1MmvVQQqK7KW/bTA==}
+  /htmx.org@1.9.11:
+    resolution: {integrity: sha512-WlVuICn8dfNOOgYmdYzYG8zSnP3++AdHkMHooQAzGZObWpVXYathpz/I37ycF4zikR6YduzfCvEcxk20JkIUsw==}
     dev: false
 
   /http-cache-semantics@4.1.1:
