@@ -126,6 +126,7 @@ const projects: Project[] = [
 			'button button '
 			'lineB lineB';
 		gap: 32px 0px;
+		max-width: 1015px;
 	}
 
 	.custom-picture {
@@ -147,10 +148,6 @@ const projects: Project[] = [
 		margin-bottom: 72px;
 	}
 
-	img {
-		grid-area: image;
-	}
-
 	h2 {
 		grid-area: title;
 		margin: 0px;
@@ -168,5 +165,93 @@ const projects: Project[] = [
 
 	div[id=3] span:last-child {
 		display: none;
+	}
+
+	@media(min-width: 768px) {
+		ul {
+			padding-top: 50px;
+		}
+
+		.custom-picture {
+			display: flex;
+			align-items: end;
+		}
+
+		ul div:nth-of-type(even) .custom-picture {
+			justify-content: end;
+		}
+
+		ul div:nth-of-type(odd) {
+			grid-template-columns: 2fr 281px;
+			grid-template-areas: '. lineT'
+			'image title'
+			'image description'
+			'image description'
+			'image button'
+			'. lineB';
+		}
+
+		ul div:nth-of-type(even) {
+			grid-template-columns: 281px 2fr;
+			grid-template-areas: 'lineT .'
+			'title image'
+			'description image'
+			'description image'
+			'button image'
+			'lineB .';
+		}
+		.line-break-bottom {
+			margin-top: 10px;
+		}
+		div[id=3] span:last-child {
+		display: block;
+	}
+	}
+
+	@media (min-width: 1024px) {
+		.project {
+			gap: 0px;
+		}
+
+		.project p {
+			align-self: center;
+		}
+		h2 {
+			align-self: end;
+		}
+		ul div:nth-of-type(odd) {
+			grid-template-columns: 2fr 350px;
+		}
+
+		ul div:nth-of-type(even) {
+			grid-template-columns: 350px 2fr;
+		}
+
+		.project-button {
+			align-self: start;
+		}
+
+		.line-break-bottom {
+			margin-top: 0px;
+		}
+
+		ul div:nth-of-type(odd) {
+			grid-template-columns: 2fr 350px;
+			grid-template-areas: '. lineT'
+			'image title'
+			'image description'
+			'image button'
+			'. lineB';
+		}
+
+		ul div:nth-of-type(even) {
+			grid-template-columns: 350px 2fr;
+			grid-template-areas: 'lineT .'
+			'title image'
+			'description image'
+			'description image'
+			'button image'
+			'lineB .';
+		}
 	}
 </style>
