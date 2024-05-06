@@ -9,7 +9,7 @@ import { Icon } from 'astro-icon/components';
 				<ul class="nav-container">
 					<li><a aria-label="link to top of page" href="#"><Icon name="logo-light" /></a></li>
 					<li><a aria-label="link to top of page" href="/">home</a></li>
-					<li><a aria-label="link to portfolio page" href="/portfolio">portfolio</a></li>
+					<li><a aria-label="link to projects page" href="/projects">projects</a></li>
 					<li><a aria-label="link to contact page" href="/contact-me">contact me</a></li>
 				</ul>
 			</li>
@@ -49,13 +49,13 @@ import { Icon } from 'astro-icon/components';
 
 	#footer-container {
 		display: flex;
-		font-size: var(--xs-small-font);
 		justify-content: center;
-		text-transform: uppercase;
 		align-items: center;
 		width: calc(100% - 14%);
 		min-height: 354px;
+		font-size: var(--xs-small-font);
 		letter-spacing: 0.1rem;
+		text-transform: uppercase;
 	}
 
 	#footer-container li {
@@ -123,35 +123,35 @@ import { Icon } from 'astro-icon/components';
 		}
 
 		#footer-container {
-			min-height: 80px;
 			width: calc(100% - 55px);
+			min-height: 80px;
 		}
 		.site-map-container {
 			flex-direction: row;
 			margin: 0px;
-			min-height: 80px;
 			width: 100%;
+			min-height: 80px;
 		}
 
 		.nav-container {
 			flex-direction: row;
-			min-width: 481px;
 			justify-content: flex-start;
 			gap: 40px;
+			min-width: 481px;
 		}
 	}
-		@media (min-width: 768px) {
-			#footer-container {
-				height: 80px;
-			}
+	@media (min-width: 768px) {
+		#footer-container {
+			height: 80px;
 		}
-		@media (min-width: 1024px) {
-			#footer-container {
-				max-width: 1056px;
-			}
+	}
+	@media (min-width: 1024px) {
+		#footer-container {
+			max-width: 1056px;
+		}
 
-			.nav-container {
+		.nav-container {
 			gap: 60px;
-			}
 		}
+	}
 </style>
