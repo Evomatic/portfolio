@@ -5,30 +5,27 @@ import ProjectDetails from '~/components/Projects/ProjectDetails.astro';
 import { projects } from '~/lib/constants';
 
 export function getStaticPaths() {
-	// return [
-	// 	{ params: { project: 'manage' }, props: manageInfo },
-	// 	{ params: { project: 'bookmark' }, props: bookmarkInfo },
-	// 	{ params: { project: 'insure' } },
-	// 	{ params: { project: 'fylo' } },
-	// ];
-	return projects.map((project) => {
+	return projects.map((projectInfo) => {
 		return {
-			params: { title: project.title },
-			props: { project },
+			params: { project: projectInfo.title },
+			props: { projectInfo },
 		};
 	});
 }
 
-const { title } = Astro.params;
-const { project } = Astro.props;
+const { projectInfo } = Astro.props;
 ---
 
-<Layout title={`${project.title} project details.`}>
+<Layout title={`${projectInfo.title} project details.`}>
 	<div class="page-wrapper">
-		<ProjectDetails />
-		<h1>{project.title}</h1>
-		<span>{project.background}</span>
-		<ContactMeShared />
+		<ProjectDetails
+			images={projectInfo.images}
+			summary={projectInfo.summary}
+			title={projectInfo.title}
+			spec={projectInfo.specs}
+			background={projectInfo.background}
+		/>
+		<ContactMeShared hideBorder/>
 	</div>
 </Layout>
 
@@ -37,5 +34,6 @@ const { project } = Astro.props;
 		margin-inline: auto;
 		padding-right: 1.7rem;
 		padding-left: 1.7rem;
+	}
 	}
 </style>

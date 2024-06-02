@@ -11,10 +11,15 @@ type Image = {
 	alt: string;
 };
 
-type Images = {
+export type Images = {
 	list: Image;
 	cover: Image;
 	preview: { top: Image; bottom: Image };
+};
+
+export type Specs = {
+	type: string;
+	tools: string;
 };
 
 export interface Project {
@@ -23,5 +28,5 @@ export interface Project {
 	summary: string;
 	href: string;
 	background: string;
-	specs: { type: string; tools: string };
+	specs: Specs;
 }

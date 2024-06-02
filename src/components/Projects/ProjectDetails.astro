@@ -1,0 +1,128 @@
+---
+import CustomPicture from '../CustomPicture.astro';
+import type { Specs, Images } from '~/lib/interfaces';
+import Button from '../Button.astro';
+
+interface Props {
+	images: Images;
+	summary: string;
+	title: string;
+	spec: Specs;
+	background: string;
+	link?: string;
+}
+
+const { images, summary, title, spec, background, link } = Astro.props;
+---
+
+<div class="container">
+	<CustomPicture
+		width={'100%'}
+		desktopImageSpec={images.cover.desktopImgSpecs}
+		tabletImageSpec={images.cover.tabletImgSpecs}
+		mobileImageSpec={images.cover.mobileImgSpecs}
+		alt={images.cover.alt}
+	/>
+	<div class="details">
+		<div class="summary-container">
+			<div class="summary">
+				<h2>
+					{title}
+				</h2>
+				<p>{summary}</p>
+				<span class="spec">{spec.type}</span>
+				<span class="spec">{spec.tools}</span>
+				<Button
+					class="button"
+					href={link || '#'}
+					width={35}
+					height={8}
+					label="VISIT WEBSITE"
+					ariaLabel="open project website."
+				/>
+				<span class="line-break"></span>
+			</div>
+		</div>
+		<div class="background">
+			<h3>Project Background</h3>
+			<p>{background}</p>
+			<h3>Static Previews</h3>
+			<CustomPicture
+				width={'100%'}
+				desktopImageSpec={images.preview.top.desktopImgSpecs}
+				tabletImageSpec={images.preview.top.tabletImgSpecs}
+				mobileImageSpec={images.preview.top.mobileImgSpecs}
+				alt={images.preview.top.alt}
+			/>
+			<CustomPicture
+				width={'100%'}
+				desktopImageSpec={images.preview.bottom.desktopImgSpecs}
+				tabletImageSpec={images.preview.bottom.tabletImgSpecs}
+				mobileImageSpec={images.preview.bottom.mobileImgSpecs}
+				alt={images.preview.bottom.alt}
+			/>
+		</div>
+	</div>
+	<style>
+		.button {
+			max-width: 110px;
+		}
+		h2 {
+			margin-bottom: 0px;
+			text-transform: capitalize;
+		}
+		.details {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding-top: 25px;
+		}
+
+		.spec {
+			color: #5fb4a2;
+		}
+
+		.summary-container {
+			display: flex;
+			flex-direction: row;
+			border-top: solid var(--light-grey-text-field) 1px;
+			max-width: 350px;
+		}
+
+		.summary {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+		}
+
+		.summary p {
+			margin-bottom: 0px;
+		}
+
+		.line-break {
+			display: none;
+			border: solid var(--light-grey-text-field) 1px;
+			width: 100%;
+		}
+
+		.background {
+			justify-self: flex-end;
+			max-width: 635px;
+		}
+
+		h3 {
+			font-weight: normal;
+		}
+
+		@media (min-width: 768px) {
+			.details {
+				flex-direction: row;
+				padding-top: 100px;
+			}
+
+			.line-break {
+				margin-top: 20px;
+			}
+		}
+	</style>
+</div>

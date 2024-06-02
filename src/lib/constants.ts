@@ -52,7 +52,7 @@ import type { Project } from './interfaces';
 
 export const projects: Project[] = [
 	{
-		title: 'Manage',
+		title: 'manage',
 		summary:
 			'This project required me to build a fully responsive landing page to the designs provided. I used HTML5, along with CSS Grid and JavaScript for the areas that required interactivity, such as the testimonial slider.',
 		background:
@@ -92,7 +92,7 @@ export const projects: Project[] = [
 		},
 	},
 	{
-		title: 'Bookmark',
+		title: 'bookmark',
 		summary:
 			'This project required me to build a fully responsive landing page to the designs provided. I used HTML5, along with CSS Grid and JavaScript for the areas that required interactivity, such as the features section.',
 		href: 'projects/bookmark',
@@ -132,7 +132,7 @@ export const projects: Project[] = [
 		},
 	},
 	{
-		title: 'Insure',
+		title: 'insure',
 		summary:
 			'This was a small project which mostly consisted of HTML and CSS. I built a fully-responsive landing page. The only JavaScript this project required was to enable the toggling of the mobile navigation.',
 		href: 'projects/insure',
@@ -172,7 +172,7 @@ export const projects: Project[] = [
 		},
 	},
 	{
-		title: 'Fylo',
+		title: 'fylo',
 		summary:
 			'This project was built in pure HTML and CSS. I had mobile and desktop designs to work to and built it so that it was fully-responsive. I took a mobile-first approach and used modern CSS like Flexbox and Grid for layout purposes.',
 		href: 'projects/fylo',

@@ -1,9 +1,15 @@
 ---
 import Button from './Button.astro';
+
+interface Props {
+	hideBorder?: boolean;
+}
+
+const { hideBorder } = Astro.props;
 ---
 
 <div class="contact-me">
-	<span class="line-break"></span>
+	{!hideBorder && <span class="line-break" />}
 	<div class="header">
 		<h2>Interested in doing a project together?</h2>
 	</div>
