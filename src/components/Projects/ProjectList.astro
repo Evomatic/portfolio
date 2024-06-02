@@ -1,84 +1,7 @@
 ---
-import manageDesktop from '../../images/portfolio/desktop/image-portfolio-manage@2x.jpg';
-import manageMobile from '../../images/portfolio/mobile/image-portfolio-manage@2x.jpg';
-import manageTablet from '../../images/portfolio/tablet/image-portfolio-manage@2x.jpg';
-import bookmarkTablet from '../../images/portfolio/tablet/image-portfolio-bookmark@2x.jpg';
-import bookmarkMobile from '../../images/portfolio/mobile/image-portfolio-bookmark@2x.jpg';
-import bookmarkDesktop from '../../images/portfolio/desktop/image-portfolio-bookmark@2x.jpg';
-import insureTablet from '../../images/portfolio/tablet/image-portfolio-insure@2x.jpg';
-import insureMobile from '../../images/portfolio/mobile/image-portfolio-insure@2x.jpg';
-import insureDesktop from '../../images/portfolio/desktop/image-portfolio-insure@2x.jpg';
-import fyloMobile from '../../images/portfolio/mobile/image-portfolio-fylo@2x.jpg';
-import fyloTablet from '../../images/portfolio/tablet/image-portfolio-fylo@2x.jpg';
-import fyloDesktop from '../../images/portfolio/desktop/image-portfolio-fylo@2x.jpg';
 import CustomPicture from '../CustomPicture.astro';
-import type { ImgSpecs } from '../CustomPicture.astro';
 import Button from '../Button.astro';
-
-type Image = {
-	mobileImgSpecs: ImgSpecs;
-	tabletImgSpecs: ImgSpecs;
-	desktopImgSpecs: ImgSpecs;
-	alt: string;
-};
-
-interface Project {
-	image: Image;
-	title: string;
-	description: string;
-	href: string;
-}
-
-const projects: Project[] = [
-	{
-		image: {
-			mobileImgSpecs: { src: manageMobile },
-			tabletImgSpecs: { src: manageTablet },
-			desktopImgSpecs: { src: manageDesktop },
-			alt: 'The landing page of the manage project.',
-		},
-		title: 'Manage',
-		description:
-			'This project required me to build a fully responsive landing page to the designs provided. I used HTML5, along with CSS Grid and JavaScript for the areas that required interactivity, such as the testimonial slider.',
-		href: 'projects/manage',
-	},
-	{
-		image: {
-			mobileImgSpecs: { src: bookmarkMobile },
-			tabletImgSpecs: { src: bookmarkTablet },
-			desktopImgSpecs: { src: bookmarkDesktop },
-			alt: 'The landing page of the bookmark project.',
-		},
-		title: 'Bookmark',
-		description:
-			'This project required me to build a fully responsive landing page to the designs provided. I used HTML5, along with CSS Grid and JavaScript for the areas that required interactivity, such as the features section.',
-		href: 'projects/bookmark',
-	},
-	{
-		image: {
-			mobileImgSpecs: { src: insureMobile },
-			tabletImgSpecs: { src: insureTablet },
-			desktopImgSpecs: { src: insureDesktop },
-			alt: 'The landing page of the insure project.',
-		},
-		title: 'Insure',
-		description:
-			'This was a small project which mostly consisted of HTML and CSS. I built a fully-responsive landing page. The only JavaScript this project required was to enable the toggling of the mobile navigation.',
-		href: 'projects/insure',
-	},
-	{
-		image: {
-			mobileImgSpecs: { src: fyloMobile },
-			tabletImgSpecs: { src: fyloTablet },
-			desktopImgSpecs: { src: fyloDesktop },
-			alt: 'The landing page of the fylo project.',
-		},
-		title: 'Fylo',
-		description:
-			'This project was built in pure HTML and CSS. I had mobile and desktop designs to work to and built it so that it was fully-responsive. I took a mobile-first approach and used modern CSS like Flexbox and Grid for layout purposes.',
-		href: 'projects/fylo',
-	},
-];
+import { projects } from "../../lib/constants"
 ---
 
 <ul>
@@ -87,14 +10,14 @@ const projects: Project[] = [
 			<div id=`${index}` class="project">
 				<CustomPicture
 					class="custom-picture"
-					mobileImgSpecs={{ src: project.image.mobileImgSpecs.src, width: 320.6, height: 306.5 }}
-					tabletImgSpecs={{ src: project.image.tabletImgSpecs.src, width: 339, height: 314 }}
-					desktopImgSpecs={{ src: project.image.desktopImgSpecs.src, width: 540, height: 500 }}
+					mobileImageSpec={{ src: project.images.list.mobileImgSpecs.src, width: 320.6, height: 306.5 }}
+					tabletImageSpec={{ src: project.images.list.tabletImgSpecs.src, width: 339, height: 314 }}
+					desktopImageSpec={{ src: project.images.list.desktopImgSpecs.src, width: 540, height: 500 }}
 					alt="Evan's profile picture."
 				/>
 				<span class="line-break-top" />
 				<h2>{project.title}</h2>
-				<p>{project.description}</p>
+				<p>{project.summary}</p>
 				<Button
 					class="project-button"
 					height={8}

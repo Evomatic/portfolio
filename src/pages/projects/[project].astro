@@ -2,22 +2,32 @@
 import Layout from '~/layouts/Layout.astro';
 import ContactMeShared from '~/components/ContactMeShared.astro';
 import ProjectDetails from '~/components/Projects/ProjectDetails.astro';
+import { projects } from '~/lib/constants';
 
 export function getStaticPaths() {
-	return [
-		{ params: { project: 'manage' } },
-		{ params: { project: 'bookmark' } },
-		{ params: { project: 'insure' } },
-		{ params: { project: 'fylo' } },
-	];
+	// return [
+	// 	{ params: { project: 'manage' }, props: manageInfo },
+	// 	{ params: { project: 'bookmark' }, props: bookmarkInfo },
+	// 	{ params: { project: 'insure' } },
+	// 	{ params: { project: 'fylo' } },
+	// ];
+	return projects.map((project) => {
+		return {
+			params: { title: project.title },
+			props: { project },
+		};
+	});
 }
 
-const { project } = Astro.params;
+const { title } = Astro.params;
+const { project } = Astro.props;
 ---
 
-<Layout title={`${project} project details.`}>
+<Layout title={`${project.title} project details.`}>
 	<div class="page-wrapper">
 		<ProjectDetails />
+		<h1>{project.title}</h1>
+		<span>{project.background}</span>
 		<ContactMeShared />
 	</div>
 </Layout>
