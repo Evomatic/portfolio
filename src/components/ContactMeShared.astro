@@ -1,15 +1,11 @@
 ---
 import Button from './Button.astro';
 
-interface Props {
-	hideBorder?: boolean;
-}
-
-const { hideBorder } = Astro.props;
+const { ...rest } = Astro.props;
 ---
 
 <div class="contact-me">
-	{!hideBorder && <span class="line-break" />}
+	<span class:list={['line-break']} {...rest}></span>
 	<div class="header">
 		<h2>Interested in doing a project together?</h2>
 	</div>
@@ -43,6 +39,7 @@ const { hideBorder } = Astro.props;
 		.btn,
 		.header {
 			justify-self: center;
+			max-width: 320px;
 		}
 
 		.header {

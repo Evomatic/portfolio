@@ -30,8 +30,10 @@ const { images, summary, title, spec, background, link } = Astro.props;
 					{title}
 				</h2>
 				<p>{summary}</p>
-				<span class="spec">{spec.type}</span>
-				<span class="spec">{spec.tools}</span>
+				<div class="spec-container">
+					<span class="spec">{spec.type}</span>
+					<span class="spec">{spec.tools}</span>
+				</div>
 				<Button
 					class="button"
 					href={link || '#'}
@@ -47,20 +49,22 @@ const { images, summary, title, spec, background, link } = Astro.props;
 			<h3>Project Background</h3>
 			<p>{background}</p>
 			<h3>Static Previews</h3>
-			<CustomPicture
-				width={'100%'}
-				desktopImageSpec={images.preview.top.desktopImgSpecs}
-				tabletImageSpec={images.preview.top.tabletImgSpecs}
-				mobileImageSpec={images.preview.top.mobileImgSpecs}
-				alt={images.preview.top.alt}
-			/>
-			<CustomPicture
-				width={'100%'}
-				desktopImageSpec={images.preview.bottom.desktopImgSpecs}
-				tabletImageSpec={images.preview.bottom.tabletImgSpecs}
-				mobileImageSpec={images.preview.bottom.mobileImgSpecs}
-				alt={images.preview.bottom.alt}
-			/>
+			<div class="img-container">
+				<CustomPicture
+					width={'100%'}
+					desktopImageSpec={images.preview.top.desktopImgSpecs}
+					tabletImageSpec={images.preview.top.tabletImgSpecs}
+					mobileImageSpec={images.preview.top.mobileImgSpecs}
+					alt={images.preview.top.alt}
+				/>
+				<CustomPicture
+					width={'100%'}
+					desktopImageSpec={images.preview.bottom.desktopImgSpecs}
+					tabletImageSpec={images.preview.bottom.tabletImgSpecs}
+					mobileImageSpec={images.preview.bottom.mobileImgSpecs}
+					alt={images.preview.bottom.alt}
+				/>
+			</div>
 		</div>
 	</div>
 	<style>
@@ -78,8 +82,18 @@ const { images, summary, title, spec, background, link } = Astro.props;
 			padding-top: 25px;
 		}
 
+		.spec-container {
+			display: flex;
+			flex-direction: column;
+		}
 		.spec {
 			color: #5fb4a2;
+		}
+
+		.img-container {
+			display: flex;
+			flex-direction: column;
+			gap: 32px;
 		}
 
 		.summary-container {
@@ -100,7 +114,6 @@ const { images, summary, title, spec, background, link } = Astro.props;
 		}
 
 		.line-break {
-			display: none;
 			border: solid var(--light-grey-text-field) 1px;
 			width: 100%;
 		}
@@ -116,12 +129,46 @@ const { images, summary, title, spec, background, link } = Astro.props;
 
 		@media (min-width: 768px) {
 			.details {
-				flex-direction: row;
 				padding-top: 100px;
 			}
-
 			.line-break {
 				margin-top: 20px;
+			}
+		}
+
+		@media (min-width: 768px) and (max-width: 1023px) {
+			.background {
+				max-width: 100%;
+			}
+			.line-break {
+				display: none;
+			}
+			h2 {
+				margin-top: 30px;
+			}
+
+			p {
+				margin-top: 30px;
+			}
+			.summary-container {
+				border-bottom: solid var(--light-grey-text-field) 1px;
+				padding-bottom: 30px;
+				max-width: 100%;
+			}
+
+			.summary {
+				display: grid;
+				grid-template-rows: 5rem 4rem 3rem;
+				grid-template-columns: repeat(2, 1fr);
+			}
+			.button {
+				grid-row: 3;
+			}
+		}
+
+		@media (min-width: 1024px) {
+			.details {
+				flex-direction: row;
 			}
 		}
 	</style>
