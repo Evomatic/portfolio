@@ -48,4 +48,4 @@ export { default as fyloPreviewTabletT } from './images/detail/tablet/image-fylo
 export { default as fyloPreviewDesktopT } from './images/detail/desktop/image-fylo-preview-1.jpg';
 export { default as fyloPreviewMobileB } from './images/detail/mobile/image-fylo-preview-2.jpg';
 export { default as fyloPreviewTabletB } from './images/detail/tablet/image-fylo-preview-2.jpg';
-export { default as fyloPreviewDesktopB } from './images/detail/Desktop/image-fylo-preview-2.jpg';
+export { default as fyloPreviewDesktopB } from './images/detail/desktop/image-fylo-preview-2.jpg';
