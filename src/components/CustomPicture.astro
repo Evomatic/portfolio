@@ -16,7 +16,6 @@ const {
 	tabletImageSpec,
 	desktopImageSpec,
 	alt,
-	width,
 	...rest
 } = Astro.props;
 
@@ -58,5 +57,5 @@ const desktopImg = await getImage({
 		srcset={desktopImg.src}
 		type="image/jpg"
 	/>
-	<img width={width} src={mobileImg.src} alt={alt} />
+	<img src={mobileImg.src} alt={alt} class={className} {...rest} />
 </picture>

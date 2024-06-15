@@ -17,7 +17,7 @@ const { images, summary, title, spec, background, link } = Astro.props;
 
 <div class="container">
 	<CustomPicture
-		width={'100%'}
+		class="custom-picture"
 		desktopImageSpec={images.cover.desktopImgSpecs}
 		tabletImageSpec={images.cover.tabletImgSpecs}
 		mobileImageSpec={images.cover.mobileImgSpecs}
@@ -51,14 +51,14 @@ const { images, summary, title, spec, background, link } = Astro.props;
 			<h3>Static Previews</h3>
 			<div class="img-container">
 				<CustomPicture
-					width={'100%'}
+					class="custom-picture"
 					desktopImageSpec={images.preview.top.desktopImgSpecs}
 					tabletImageSpec={images.preview.top.tabletImgSpecs}
 					mobileImageSpec={images.preview.top.mobileImgSpecs}
 					alt={images.preview.top.alt}
 				/>
 				<CustomPicture
-					width={'100%'}
+					class="custom-picture"
 					desktopImageSpec={images.preview.bottom.desktopImgSpecs}
 					tabletImageSpec={images.preview.bottom.tabletImgSpecs}
 					mobileImageSpec={images.preview.bottom.mobileImgSpecs}
@@ -68,6 +68,9 @@ const { images, summary, title, spec, background, link } = Astro.props;
 		</div>
 	</div>
 	<style>
+		.custom-picture img {
+			width: 100%;
+		}
 		.button {
 			max-width: 110px;
 		}

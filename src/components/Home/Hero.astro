@@ -8,6 +8,7 @@ import AboutMeButton from './AboutMeButton.astro';
 
 <div class="hero">
 	<CustomPicture
+		class="custom-picture"
 		mobileImageSpec={{ src: mobileHeroImage, width: 320 }}
 		tabletImageSpec={{ src: tabletHeroImage, width: 713 }}
 		desktopImageSpec={{ src: desktopHeroImage, width: 1056 }}
@@ -15,13 +16,16 @@ import AboutMeButton from './AboutMeButton.astro';
 	/>
 
 	<div class="header-and-button">
-		<h2>Hey, I'm Alex Spencer and I love building beautiful websites</h2><AboutMeButton
-			class="about-me-button"
-		/>
+		<h2>
+			Hey, I'm Alex Spencer and I love building beautiful websites
+		</h2><AboutMeButton class="about-me-button" />
 	</div>
 </div>
 
 <style>
+	.custom-picture {
+		width: 100%;
+	}
 	.hero {
 		display: flex;
 		flex-direction: column;

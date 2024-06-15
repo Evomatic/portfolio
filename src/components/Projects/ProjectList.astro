@@ -55,6 +55,9 @@ import { projects } from "../../lib/constants"
 	.custom-picture {
 		grid-area: image;
 	}
+	.custom-picture img {
+		width: 100%;
+	}
 
 	.line-break-top,
 	.line-break-bottom {
@@ -91,6 +94,10 @@ import { projects } from "../../lib/constants"
 	}
 
 	@media(min-width: 768px) {
+
+		.custom-picture img {
+			max-width: 339px;
+	}
 		ul {
 			padding-top: 50px;
 		}
@@ -132,6 +139,10 @@ import { projects } from "../../lib/constants"
 	}
 
 	@media (min-width: 1024px) {
+
+		.custom-picture img {
+			max-width: 540px;
+	}
 		.project {
 			gap: 0px;
 		}
