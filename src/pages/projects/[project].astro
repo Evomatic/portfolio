@@ -2,18 +2,19 @@
 import Layout from '~/layouts/Layout.astro';
 import ContactMeShared from '~/components/ContactMeShared.astro';
 import ProjectDetails from '~/components/Projects/ProjectDetails.astro';
+import Carousel from '~/components/Carousel.astro';
 import { projects } from '~/lib/constants';
 
 export function getStaticPaths() {
-	return projects.map((projectInfo) => {
+	return projects.map((projectInfo, index) => {
 		return {
 			params: { project: projectInfo.title },
-			props: { projectInfo },
+			props: { projectInfo, index },
 		};
 	});
 }
 
-const { projectInfo } = Astro.props;
+const { projectInfo, index } = Astro.props;
 ---
 
 <Layout title={`${projectInfo.title} project details.`}>
@@ -25,6 +26,7 @@ const { projectInfo } = Astro.props;
 			spec={projectInfo.specs}
 			background={projectInfo.background}
 		/>
+		<Carousel currentIndex={index} />
 		<ContactMeShared />
 	</div>
 </Layout>

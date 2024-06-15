@@ -1,0 +1,65 @@
+---
+import { projects } from '~/lib/constants';
+
+interface Props {
+	currentIndex: number;
+}
+const { currentIndex } = Astro.props;
+
+let previousProject =
+	projects[(currentIndex - 1 + projects.length) % projects.length];
+let nextProject = projects[(currentIndex + 1) % projects.length];
+---
+
+<div class="carousel">
+	<a class="previous" href={previousProject.title}
+		><h3>{previousProject.title}</h3><span>Previous Project</span></a
+	>
+	<span class="line-break"></span>
+	<a class="next" href={nextProject.title}
+		><h3>{nextProject.title}</h3><span>Next Project</span></a
+	>
+</div>
+<style>
+	.carousel {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		gap: 20px;
+		border-top: solid var(--light-grey-text-field) 1px;
+		border-bottom: solid var(--light-grey-text-field) 1px;
+		height: 148px;
+	}
+
+	.line-break {
+		border-left: solid var(--light-grey-text-field) 1px;
+	}
+
+	a {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		cursor: pointer;
+		width: 100%;
+		text-decoration: none;
+		text-transform: capitalize;
+	}
+
+	a h3 {
+		margin-bottom: 3px;
+		font-weight: normal;
+	}
+
+	a span {
+		color: #adb5bd;
+		font-size: var(--medium-font);
+	}
+
+	.next h3 {
+		text-align: end;
+	}
+
+	.next span {
+		text-align: end;
+	}
+</style>
