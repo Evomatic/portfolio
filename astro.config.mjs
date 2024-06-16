@@ -12,6 +12,6 @@ export default defineConfig({
 			iconDir: 'src/images/icons',
 		}),
 	],
-	output: 'hybrid',
+	output: 'static',
 	// adapter: vercel(),
 });
