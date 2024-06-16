@@ -3,12 +3,17 @@
 	<h2>Contact Me</h2>
 	<form
 		hx-swap="none"
-		hx-post="/api/email.json"
 		hx-on::after-request="if(event.detail.successful) this.reset()"
 	>
 		<label
 			>Name
-			<input type="text" name="name" required autocomplete="text" placeholder="Jane Appleseed" />
+			<input
+				type="text"
+				name="name"
+				required
+				autocomplete="text"
+				placeholder="Jane Appleseed"
+			/>
 			<span class="error-message">This field is required</span>
 		</label>
 		<label
@@ -24,7 +29,8 @@
 		</label>
 		<label
 			>Message
-			<textarea name="message" required placeholder="How can I help?"></textarea>
+			<textarea name="message" required placeholder="How can I help?"
+			></textarea>
 			<span class="error-message">This field is required</span>
 		</label>
 		<input class="button" value="Send Message" type="submit" />
