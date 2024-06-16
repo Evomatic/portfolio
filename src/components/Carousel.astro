@@ -1,5 +1,6 @@
 ---
 import { projects } from '~/lib/constants';
+import { Icon } from 'astro-icon/components';
 
 interface Props {
 	currentIndex: number;
@@ -13,11 +14,14 @@ let nextProject = projects[(currentIndex + 1) % projects.length];
 
 <div class="carousel">
 	<a class="previous" href={previousProject.title}
-		><h3>{previousProject.title}</h3><span>Previous Project</span></a
+		><Icon name="left-carrot" />
+		<div><h3>{previousProject.title}</h3><span>Previous Project</span></div></a
 	>
 	<span class="line-break"></span>
 	<a class="next" href={nextProject.title}
-		><h3>{nextProject.title}</h3><span>Next Project</span></a
+		><Icon name="right-carrot" /><div>
+			<h3>{nextProject.title}</h3><span>Next Project</span>
+		</div></a
 	>
 </div>
 <style>
@@ -26,6 +30,7 @@ let nextProject = projects[(currentIndex + 1) % projects.length];
 		flex-direction: row;
 		justify-content: space-between;
 		gap: 20px;
+		margin: 40px 0px;
 		border-top: solid var(--light-grey-text-field) 1px;
 		border-bottom: solid var(--light-grey-text-field) 1px;
 		height: 148px;
@@ -46,6 +51,7 @@ let nextProject = projects[(currentIndex + 1) % projects.length];
 	}
 
 	a h3 {
+		margin-top: 15px;
 		margin-bottom: 3px;
 		font-weight: normal;
 	}
@@ -55,11 +61,48 @@ let nextProject = projects[(currentIndex + 1) % projects.length];
 		font-size: var(--medium-font);
 	}
 
+	a div {
+		display: flex;
+		flex-direction: column;
+	}
+
 	.next h3 {
 		text-align: end;
 	}
 
 	.next span {
 		text-align: end;
+	}
+	.next svg {
+		align-self: end;
+	}
+
+	@media (min-width: 768px) {
+		a {
+			flex-direction: row;
+			gap: 25px;
+		}
+
+		.next {
+			justify-content: end;
+		}
+		a svg {
+		}
+		.next svg {
+			align-self: center;
+			order: 1;
+		}
+
+		.previous {
+			justify-content: start;
+		}
+
+		a svg {
+			align-self: center;
+		}
+
+		a div {
+			align-self: center;
+		}
 	}
 </style>
