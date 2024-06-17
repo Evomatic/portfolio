@@ -5,7 +5,7 @@
 - Built with:
   - [Astro]([https://reactjs.org/](https://astro.build/)) - Web framework
   - [Styled Components](https://styled-components.com/) - For improved HTML
-- [Resend](https://resend.com/) - for sending email 
+  - [Resend](https://resend.com/) - for sending email 
 
 ## The challenge
 
