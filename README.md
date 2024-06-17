@@ -1,8 +1,5 @@
 # Frontend Mentor - Designo agency website solution
 
-![1](./screenshots/Screenshot-Designo_Home.png)
-![2](./screenshots/Screenshot-Designo_Locations.png)
-
 ## Developed with
 
 - Built with:
