@@ -7,10 +7,20 @@ import { Icon } from 'astro-icon/components';
 		<ul class="site-map-container">
 			<li>
 				<ul class="nav-container">
-					<li><a aria-label="link to top of page" href="#"><Icon name="logo-light" /></a></li>
+					<li>
+						<a aria-label="link to top of page" href="#"
+							><Icon name="logo-light" /></a
+						>
+					</li>
 					<li><a aria-label="link to top of page" href="/">home</a></li>
-					<li><a aria-label="link to projects page" href="/projects">projects</a></li>
-					<li><a aria-label="link to contact page" href="/contact-me">contact me</a></li>
+					<li>
+						<a aria-label="link to projects page" href="/projects">projects</a>
+					</li>
+					<li>
+						<a aria-label="link to contact page" href="/contact-me"
+							>contact me</a
+						>
+					</li>
 				</ul>
 			</li>
 			<li>
@@ -22,15 +32,11 @@ import { Icon } from 'astro-icon/components';
 							rel="noopener noreferrer"
 							aria-label="link to github"><Icon name="github-light" /></a
 						><li>
-							<a href="#" aria-label="link to twitter" target="_blank" rel="noopener noreferrer"
-								><Icon name="twitter-light" /><li>
-									<a
-										href="https://www.linkedin.com/in/evantrujillo/"
-										aria-label="link to linkedin"
-										target="_blank"
-										rel="noopener noreferrer"><Icon name="linkedin-light" /></a
-									>
-								</li></a
+							<a
+								href="https://www.linkedin.com/in/evantrujillo/"
+								aria-label="link to linkedin"
+								target="_blank"
+								rel="noopener noreferrer"><Icon name="linkedin-light" /></a
 							>
 						</li>
 					</li>
@@ -39,6 +45,7 @@ import { Icon } from 'astro-icon/components';
 		</ul>
 	</nav>
 </footer>
+
 <style>
 	footer {
 		display: flex;
@@ -93,7 +100,6 @@ import { Icon } from 'astro-icon/components';
 
 	.social-media {
 		display: flex;
-		align-items: center;
 		gap: 16px;
 	}
 
