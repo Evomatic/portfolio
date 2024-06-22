@@ -7,7 +7,6 @@ interface Props {
 	desktopImageSpec: ImageSpec;
 	alt: string;
 	class?: string;
-	width?: string;
 }
 
 const {
@@ -16,46 +15,51 @@ const {
 	tabletImageSpec,
 	desktopImageSpec,
 	alt,
-	...rest
 } = Astro.props;
 
 const mobileImg = await getImage({
-	...mobileImageSpec,
+	src: mobileImageSpec.src,
 	format: 'webp',
 	fallbackFormat: 'jpg',
 });
 
 const tabletImg = await getImage({
-	...tabletImageSpec,
+	src: tabletImageSpec.src,
 	format: 'webp',
 	fallbackFormat: 'jpg',
 });
 
 const desktopImg = await getImage({
-	...desktopImageSpec,
+	src: desktopImageSpec.src,
 	format: 'webp',
 	fallbackFormat: 'jpg',
 });
 ---
 
-<picture class={className} {...rest}>
+<picture class={className}>
 	<source
 		class={className}
 		media="(max-width: 767px)"
 		srcset={mobileImg.src}
 		type="image/jpg"
+		width={mobileImageSpec.width}
+		height={mobileImageSpec.height}
 	/>
 	<source
 		class={className}
 		media="(max-width: 1023px)"
 		srcset={tabletImg.src}
 		type="image/jpg"
+		width={tabletImageSpec.width}
+		height={tabletImageSpec.height}
 	/>
 	<source
 		class={className}
 		media="(min-width: 1024px)"
 		srcset={desktopImg.src}
 		type="image/jpg"
+		width={desktopImageSpec.width}
+		height={desktopImageSpec.height}
 	/>
-	<img src={mobileImg.src} alt={alt} class={className} {...rest} />
+	<img src={mobileImg.src} alt={alt} class={className} />
 </picture>

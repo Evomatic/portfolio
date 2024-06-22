@@ -1,12 +1,14 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
 import NavMenu from './NavMenu.astro';
+import etLogo from '../../images/icons/et-logo.svg';
 ---
 
 <nav role="navigation" aria-label="Main menu">
 	<ul class="logo-container">
 		<li>
-			<a href="/"><Icon name="logo" /></a>
+			<a href="/"><Icon height={40} width={40} name="et-logo" /></a>
 		</li>
 	</ul>
 	<NavMenu />
@@ -28,6 +30,7 @@ import NavMenu from './NavMenu.astro';
 
 	.logo-container {
 		display: flex;
+		margin: 0px;
 		padding-left: 0px;
 		list-style-type: none;
 	}

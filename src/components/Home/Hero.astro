@@ -2,6 +2,7 @@
 import mobileHeroImage from '../../images/homepage/mobile/image-homepage-hero.jpg';
 import tabletHeroImage from '../../images/homepage/tablet/image-homepage-hero.jpg';
 import desktopHeroImage from '../../images/homepage/desktop/image-homepage-hero.jpg';
+import heroImage from '../../images/homepage/hero-image.webp';
 import CustomPicture from '../CustomPicture.astro';
 import AboutMeButton from './AboutMeButton.astro';
 ---
@@ -9,22 +10,22 @@ import AboutMeButton from './AboutMeButton.astro';
 <div class="hero">
 	<CustomPicture
 		class="custom-picture"
-		mobileImageSpec={{ src: mobileHeroImage, width: 320 }}
-		tabletImageSpec={{ src: tabletHeroImage, width: 713 }}
-		desktopImageSpec={{ src: desktopHeroImage, width: 1056 }}
-		alt="Image from a project used as the Hero image."
+		mobileImageSpec={{ src: heroImage, width: '100%', height: 300 }}
+		tabletImageSpec={{ src: heroImage, width: '100%', height: 600 }}
+		desktopImageSpec={{ src: heroImage, width: '100%', height: 571 }}
+		alt="HTML code photo by Florian Olivo on Unsplash."
 	/>
 
 	<div class="header-and-button">
 		<h2>
-			Hey, I'm Alex Spencer and I love building beautiful websites
+			Hi, I'm Evan Trujillo and I love building stuff for the web
 		</h2><AboutMeButton class="about-me-button" />
 	</div>
 </div>
 
 <style>
 	.custom-picture {
-		width: 100%;
+		/* width: 100%; */
 	}
 	.hero {
 		display: flex;
