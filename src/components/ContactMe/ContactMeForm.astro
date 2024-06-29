@@ -8,23 +8,17 @@
 	>
 		<label
 			>Name
-			<input type="text" name="name" required autocomplete="text" placeholder="Jane Appleseed" />
+			<input type="text" name="name" required autocomplete="text" />
 			<span class="error-message">This field is required</span>
 		</label>
 		<label
 			>Email Address
-			<input
-				type="email"
-				name="email"
-				required
-				autocomplete="email"
-				placeholder="email@example.com"
-			/>
+			<input type="email" name="email" required autocomplete="email" />
 			<span class="error-message">This field is required</span>
 		</label>
 		<label
 			>Message
-			<textarea name="message" required placeholder="How can I help?"></textarea>
+			<textarea name="message" required></textarea>
 			<span class="error-message">This field is required</span>
 		</label>
 		<input class="button" value="Send Message" type="submit" />
@@ -93,7 +87,7 @@
 	textarea {
 		padding-top: 15px;
 		height: 80px;
-		resize: none;
+		resize: vertical;
 	}
 
 	.button {

@@ -1,21 +1,24 @@
 ---
-import CustomPicture from '../CustomPicture.astro';
+import { projects } from "../../lib/constants";
 import Button from '../Button.astro';
-import { projects } from "../../lib/constants"
+import CustomPicture from '../CustomPicture.astro';
 ---
 
 <ul>
 	{
 		projects.map((project, index) => (
 			<div id=`${index}` class="project">
-				<CustomPicture
-					class="custom-picture"
+				<div class="custom-picture"
+				>
+					<CustomPicture
 					mobileImageSpec={{ src: project.images.list.mobileImgSpecs.src, width: 320.6, height: 306.5 }}
 					tabletImageSpec={{ src: project.images.list.tabletImgSpecs.src, width: 339, height: 314 }}
-					desktopImageSpec={{ src: project.images.list.desktopImgSpecs.src, width: 540, height: 500 }}
+					desktopImageSpec={{ src: project.images.list.desktopImgSpecs.src,  height: 500 }}
 					alt="Evan's profile picture."
 				/>
-				<span class="line-break-top" />
+				</div>
+				{/* <span class="line-break-top" /> */}
+				<div class="project-info">
 				<h2>{project.title}</h2>
 				<p>{project.summary}</p>
 				<Button
@@ -26,7 +29,8 @@ import { projects } from "../../lib/constants"
 					href={project.href}
 					ariaLabel="Go to project details page."
 				/>
-				<span class="line-break-bottom" />
+				</div>
+				{/* <span class="line-break-bottom" /> */}
 			</div>
 		))
 	}
@@ -43,20 +47,35 @@ import { projects } from "../../lib/constants"
 		grid-template-columns: 1fr 1fr;
 		grid-template-areas:
 			'image image'
-			'lineT lineT'
+			'info info'
+			/* 'lineT lineT'
 			'title title'
 			'description description'
 			'button button '
-			'lineB lineB';
+			'lineB lineB'; */
 		gap: 32px 0px;
 		max-width: 1015px;
 	}
 
+	.project-info {
+		border-top: solid var(--light-grey-text-field) 1px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		max-width: 350px;
+		grid-area: info;
+		border-bottom: solid var(--light-grey-text-field) 1px;
+	}
+
+	h2 {
+		justify-self: start;
+		text-transform: capitalize;
+	}
+
 	.custom-picture {
 		grid-area: image;
-	}
-	.custom-picture img {
 		width: 100%;
+		object-fit: contain;
 	}
 
 	.line-break-top,
@@ -140,52 +159,50 @@ import { projects } from "../../lib/constants"
 
 	@media (min-width: 1024px) {
 
-		.custom-picture img {
+		.project-info {
+			gap: 30px;
+		}
+
+		.custom-picture  {
 			max-width: 540px;
 	}
 		.project {
 			gap: 0px;
+			padding-bottom: 80px;
 		}
 
 		.project p {
 			align-self: center;
 		}
 		h2 {
-			align-self: end;
+			align-self: start;
 		}
-		ul div:nth-of-type(odd) {
+		/* ul div:nth-of-type(odd) {
 			grid-template-columns: 2fr 350px;
 		}
 
 		ul div:nth-of-type(even) {
 			grid-template-columns: 350px 2fr;
-		}
+		} */
 
 		.project-button {
 			align-self: start;
 		}
 
-		.line-break-bottom {
-			margin-top: 0px;
-		}
-
 		ul div:nth-of-type(odd) {
 			grid-template-columns: 2fr 350px;
-			grid-template-areas: '. lineT'
-			'image title'
-			'image description'
-			'image button'
-			'. lineB';
+			grid-template-areas:
+			'image info'
+			'image info'
+			'image info'
 		}
 
 		ul div:nth-of-type(even) {
 			grid-template-columns: 350px 2fr;
-			grid-template-areas: 'lineT .'
-			'title image'
-			'description image'
-			'description image'
-			'button image'
-			'lineB .';
+			grid-template-areas:
+			'info . image'
+			'info . image'
+			'info . image'
 		}
 	}
 </style>
