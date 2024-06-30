@@ -47,6 +47,13 @@ import { Icon } from 'astro-icon/components';
 </footer>
 
 <style>
+	[data-icon='et-logo'] {
+		color: #ffffff;
+	}
+	[data-icon='et-logo']:hover {
+		transition: color 0.3s ease;
+		color: var(--slightly-desaturated-cyan);
+	}
 	footer {
 		display: flex;
 		flex-direction: column;

@@ -6,13 +6,22 @@ import NavMenu from './NavMenu.astro';
 <nav role="navigation" aria-label="Main menu">
 	<ul class="logo-container">
 		<li>
-			<a href="/"><Icon height={45} width={45} name="et-logo" /></a>
+			<a href="/"
+				><Icon class="et-logo" height={45} width={45} name="et-logo" /></a
+			>
 		</li>
 	</ul>
 	<NavMenu />
 </nav>
 
 <style>
+	[data-icon='et-logo'] {
+		color: var(--grayish-dark-blue);
+	}
+	[data-icon='et-logo']:hover {
+		transition: color 0.3s ease;
+		color: var(--slightly-desaturated-cyan);
+	}
 	nav {
 		display: flex;
 		flex-wrap: wrap;
