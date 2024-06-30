@@ -7,9 +7,9 @@ interface Props {
 }
 const { currentIndex } = Astro.props;
 
-let previousProject =
+const previousProject =
 	projects[(currentIndex - 1 + projects.length) % projects.length];
-let nextProject = projects[(currentIndex + 1) % projects.length];
+const nextProject = projects[(currentIndex + 1) % projects.length];
 ---
 
 <div class="carousel">
@@ -29,11 +29,46 @@ let nextProject = projects[(currentIndex + 1) % projects.length];
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		gap: 20px;
+		gap: 0px;
 		margin: 40px 0px;
 		border-top: solid var(--light-grey-text-field) 1px;
 		border-bottom: solid var(--light-grey-text-field) 1px;
 		height: 148px;
+	}
+
+	[data-icon='left-carrot'],
+	[data-icon='right-carrot'] {
+		stroke: var(--grayish-dark-blue);
+	}
+
+	.previous:hover [data-icon='left-carrot'] {
+		transition: all 0.5s ease;
+		stroke: var(--primary-hover-color);
+	}
+
+	.previous:hover div h3 {
+		transition: all 0.5s ease;
+		color: var(--primary-hover-color);
+	}
+
+	.previous:hover div span {
+		transition: all 0.5s ease;
+		color: var(--primary-hover-color);
+	}
+
+	.next:hover div h3 {
+		transition: all 0.5s ease;
+		color: var(--primary-hover-color);
+	}
+
+	.next:hover div span {
+		transition: all 0.5s ease;
+		color: var(--primary-hover-color);
+	}
+
+	.next:hover [data-icon='right-carrot'] {
+		transition: all 0.5s ease;
+		stroke: var(--primary-hover-color);
 	}
 
 	.line-break {
