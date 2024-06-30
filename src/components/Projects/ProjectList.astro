@@ -7,17 +7,16 @@ import CustomPicture from '../CustomPicture.astro';
 <ul>
 	{
 		projects.map((project, index) => (
-			<div id=`${index}` class="project">
+			<div id=`project-${index}` class="project">
 				<div class="custom-picture"
 				>
 					<CustomPicture
-					mobileImageSpec={{ src: project.images.list.mobileImgSpecs.src, width: 320.6, height: 306.5 }}
+					mobileImageSpec={{ src: project.images.list.mobileImgSpecs.src, height: 306.5 }}
 					tabletImageSpec={{ src: project.images.list.tabletImgSpecs.src, width: 339, height: 314 }}
 					desktopImageSpec={{ src: project.images.list.desktopImgSpecs.src,  height: 500 }}
 					alt="Evan's profile picture."
 				/>
 				</div>
-				{/* <span class="line-break-top" /> */}
 				<div class="project-info">
 				<h2>{project.title}</h2>
 				<p>{project.summary}</p>
@@ -30,7 +29,6 @@ import CustomPicture from '../CustomPicture.astro';
 					ariaLabel="Go to project details page."
 				/>
 				</div>
-				{/* <span class="line-break-bottom" /> */}
 			</div>
 		))
 	}
@@ -44,58 +42,39 @@ import CustomPicture from '../CustomPicture.astro';
 	}
 	.project {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr;
 		grid-template-areas:
-			'image image'
-			'info info'
-			/* 'lineT lineT'
-			'title title'
-			'description description'
-			'button button '
-			'lineB lineB'; */
+			'image'
+			'info';
 		gap: 32px 0px;
 		max-width: 1015px;
+		/* margin-bottom: 60px; */
 	}
 
 	.project-info {
 		border-top: solid var(--light-grey-text-field) 1px;
+		gap: 20px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		max-width: 350px;
 		grid-area: info;
 		border-bottom: solid var(--light-grey-text-field) 1px;
+		padding-bottom: 25px;
+		margin-bottom: 60px;
 	}
 
 	h2 {
 		justify-self: start;
 		text-transform: capitalize;
+		grid-area: title;
+		margin: 0px;
+		padding-top: 25px;
+
 	}
 
 	.custom-picture {
 		grid-area: image;
-		width: 100%;
-		object-fit: contain;
-	}
-
-	.line-break-top,
-	.line-break-bottom {
-		border: solid var(--light-grey-text-field) 1px;
-		width: 100%;
-	}
-
-	.line-break-top {
-		grid-area: lineT;
-	}
-
-	.line-break-bottom {
-		grid-area: lineB;
-		margin-bottom: 72px;
-	}
-
-	h2 {
-		grid-area: title;
-		margin: 0px;
 	}
 
 	p {
@@ -106,24 +85,40 @@ import CustomPicture from '../CustomPicture.astro';
 	.project-button {
 		grid-area: button;
 		justify-self: start;
+		max-width: 105px;
 	}
 
-	div[id=3] span:last-child {
-		display: none;
+	#project-3 .project-info {
+		border-bottom: none;
+		margin-bottom: 0px;
 	}
 
 	@media(min-width: 768px) {
 
-		.custom-picture img {
-			max-width: 339px;
-	}
+		h2 {
+			padding-top: 40px;
+		}
+
+		.project-button {
+			margin-bottom: 50px;
+
+		}
+		.project {
+			padding-bottom: 100px;
+		}
+		.project-info {
+			gap: 20px;
+			justify-content: space-around;
+		}
+
 		ul {
 			padding-top: 50px;
 		}
 
 		.custom-picture {
 			display: flex;
-			align-items: end;
+			align-items: center;
+			max-width: 311px;
 		}
 
 		ul div:nth-of-type(even) .custom-picture {
@@ -131,26 +126,20 @@ import CustomPicture from '../CustomPicture.astro';
 		}
 
 		ul div:nth-of-type(odd) {
+			justify-content: end;
 			grid-template-columns: 2fr 281px;
-			grid-template-areas: '. lineT'
-			'image title'
-			'image description'
-			'image description'
-			'image button'
-			'. lineB';
+			grid-template-areas:
+			'image info'
+			'image info'
+
 		}
 
 		ul div:nth-of-type(even) {
 			grid-template-columns: 281px 2fr;
-			grid-template-areas: 'lineT .'
-			'title image'
-			'description image'
-			'description image'
-			'button image'
-			'lineB .';
-		}
-		.line-break-bottom {
-			margin-top: 10px;
+			grid-template-areas:
+			'info . image'
+			'info . image'
+
 		}
 		div[id=3] span:last-child {
 		display: block;
@@ -158,9 +147,14 @@ import CustomPicture from '../CustomPicture.astro';
 	}
 
 	@media (min-width: 1024px) {
+		#project-3 .project-info {
+		border-bottom: solid var(--light-grey-text-field) 1px;
+		margin-bottom: 0px;
+	}
 
 		.project-info {
 			gap: 30px;
+			margin-bottom: 0px;
 		}
 
 		.custom-picture  {
@@ -177,13 +171,6 @@ import CustomPicture from '../CustomPicture.astro';
 		h2 {
 			align-self: start;
 		}
-		/* ul div:nth-of-type(odd) {
-			grid-template-columns: 2fr 350px;
-		}
-
-		ul div:nth-of-type(even) {
-			grid-template-columns: 350px 2fr;
-		} */
 
 		.project-button {
 			align-self: start;
