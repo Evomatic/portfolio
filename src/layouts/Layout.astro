@@ -18,7 +18,10 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta property="og:title" content={title} />
-		<meta name="description" content="Evan Trujillo's Software Engineer portfolio website." />
+		<meta
+			name="description"
+			content="Evan Trujillo's Software Engineer portfolio website."
+		/>
 		<meta
 			property="og:description"
 			content="Evan Trujillo's Software Engineer portfolio website."
@@ -147,6 +150,10 @@ const { title } = Astro.props;
 				align-items: center;
 				background-color: var(--very-light-grey);
 				max-width: 100%;
+			}
+
+			p {
+				color: #6c757d;
 			}
 
 			main {
