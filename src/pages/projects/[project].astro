@@ -20,11 +20,13 @@ const { projectInfo, index } = Astro.props;
 <Layout title={`${projectInfo.title} project details.`}>
 	<div class="page-wrapper">
 		<ProjectDetails
+			color={projectInfo.color}
 			images={projectInfo.images}
 			summary={projectInfo.summary}
 			title={projectInfo.title}
 			spec={projectInfo.specs}
 			background={projectInfo.background}
+			link={projectInfo.link}
 		/>
 		<Carousel currentIndex={index} />
 		<ContactMeShared />

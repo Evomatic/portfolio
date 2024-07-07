@@ -11,9 +11,9 @@ import CustomPicture from '../CustomPicture.astro';
 				<div class="custom-picture"
 				>
 					<CustomPicture
-					mobileImageSpec={{ src: project.images.list.mobileImgSpecs.src, height: 306.5 }}
-					tabletImageSpec={{ src: project.images.list.tabletImgSpecs.src, width: 339, height: 314 }}
-					desktopImageSpec={{ src: project.images.list.desktopImgSpecs.src,  height: 500 }}
+					mobileImageSpec={{ src: project.images.list.mobileImgSpecs.src, height: project.images.list.mobileImgSpecs.height || "100%", width: project.images.list.mobileImgSpecs.width || "100%" }}
+					tabletImageSpec={{ src: project.images.list.tabletImgSpecs.src, width: "100%", height: 314 }}
+					desktopImageSpec={{ src: project.images.list.desktopImgSpecs.src,  height: project.images.list.desktopImgSpecs.height || 500, width: project.images.list.desktopImgSpecs.width || "100%" }}
 					alt="Evan's profile picture."
 				/>
 				</div>
@@ -40,6 +40,10 @@ import CustomPicture from '../CustomPicture.astro';
 		padding-left: 0;
 		margin-bottom: 0;
 	}
+
+	ul h2:nth-of-type(2) {
+		text-align: center;
+}
 	.project {
 		display: grid;
 		grid-template-columns: 1fr;
@@ -108,7 +112,6 @@ import CustomPicture from '../CustomPicture.astro';
 		}
 		.project-info {
 			gap: 20px;
-			justify-content: space-around;
 		}
 
 		ul {
