@@ -1,2 +1,2 @@
-# My cool minimalist portfolio website 
+# My cool minimalistic portfolio website 
 
