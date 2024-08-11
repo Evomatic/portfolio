@@ -1,31 +1,27 @@
 ---
 import Button from '../Button.astro';
-import profilePicture from '../../images/homepage/desktop/image-homepage-profile.jpg';
-import profilePictureTablet from '../../images/homepage/tablet/image-homepage-profile.jpg';
-import profilePictureMobile from '../../images/homepage/mobile/image-homepage-profile.jpg';
 import CustomPicture from '../CustomPicture.astro';
+import profile from '../../images/homepage/profile.webp';
 ---
 
 <div id="about-me">
 	<CustomPicture
 		class="custom-picture"
-		mobileImageSpec={{ src: profilePictureMobile, height: 346, width: 320 }}
-		tabletImageSpec={{ src: profilePictureTablet, height: 600, width: 281 }}
-		desktopImageSpec={{ src: profilePicture, height: 600, width: 540 }}
+		mobileImageSpec={{ src: profile, width: '100%' }}
+		tabletImageSpec={{ src: profile, height: 600 }}
+		desktopImageSpec={{ src: profile, height: 600 }}
 		alt="Evan's profile picture."
 	/>
 	<div class="description">
 		<span class="line-break-top"></span>
 		<h2>About Me</h2>
 		<p class="text">
-			I’m a junior front-end developer looking for a new role in an exciting
-			company. I focus on writing accessible HTML, using modern CSS practices
-			and writing clean JavaScript. When writing JavaScript code, I mostly use
-			React, but I can adapt to whatever tools are required. I’m based in
-			London, UK, but I’m happy working remotely and have experience in remote
-			teams. When I’m not coding, you’ll find me outdoors. I love being out in
-			nature whether that’s going for a walk, run or cycling. I’d love you to
-			check out my work.
+			I am a full stack web developer based in Tokyo, Japan, with a background
+			in teaching and information technology. I specialize in JavaScript and
+			Typescript, with a focus on building full stack web applications, using
+			React and frameworks such as Next.js and Node.js. Although I am based in
+			Japan I’m happy working remotely and have experience in remote teams. I
+			enjoy collaborating with others so lets build stuff for the web together.
 		</p>
 		<div class="button-wrapper">
 			<Button
@@ -44,7 +40,7 @@ import CustomPicture from '../CustomPicture.astro';
 		}
 		.line-break-top,
 		.line-break-bottom {
-			border: solid var(--light-grey-text-field) 1px;
+			border-top: solid var(--light-grey-text-field) 1px;
 			width: 100%;
 		}
 		.line-break-top {

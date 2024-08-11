@@ -29,4 +29,6 @@ export interface Project {
 	href: string;
 	background: string;
 	specs: Specs;
+	link: string;
+	color: string;
 }
