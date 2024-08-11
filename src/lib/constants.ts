@@ -35,7 +35,7 @@ export const projects: Project[] = [
 			cover: {
 				mobileImgSpecs: { src: pomodoroCover },
 				tabletImgSpecs: { src: pomodoroCover },
-				desktopImgSpecs: { src: pomodoroCover },
+				desktopImgSpecs: { src: pomodoroCover, height: 'auto' },
 				alt: 'pomodoro project cover image.',
 			},
 			preview: {
