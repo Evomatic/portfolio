@@ -23,6 +23,12 @@ import { Icon } from 'astro-icon/components';
 					</li>
 				</ul>
 			</li>
+			<li class="acknowledge">
+				Design from <a
+					aria-label="Link to frontend mentor"
+					href="https://www.frontendmentor.io/">Frontend Mentor</a
+				>{' '}and coded by me
+			</li>
 			<li>
 				<ul class="social-media">
 					<li>
@@ -116,6 +122,16 @@ import { Icon } from 'astro-icon/components';
 
 	.social-media li:nth-child(2) {
 		height: 19px;
+	}
+
+	.acknowledge {
+		color: var(--very-light-grey);
+		font-size: 0.5rem !important;
+	}
+
+	.acknowledge a {
+		color: var(--slightly-desaturated-cyan) !important;
+		text-decoration: underline !important;
 	}
 
 	@media (hover: hover) {
